@@ -1,0 +1,18 @@
+<%- include('common/header.ejs') %>
+  <div class="container empty-background">
+    <nav class="nav">
+      <p class="title">용계역 여행</p>
+      <div class="sub-title">코스 리스트</div>
+    </nav>
+
+    <div class="content-container">
+      <ul id="courseWrap" class="course-nav-ul"></ul>
+      <div id="location-map"></div>
+    </div>
+
+  </div>
+  <%- include('common/footer.ejs') %>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ced3ec5b7455b7ef2f55aba57f55b275"></script>
+  <script src="/js/course.js"></script>
+</body>
+</html>
