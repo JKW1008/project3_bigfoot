@@ -5,7 +5,9 @@ import UserRepository from "../repository/UserRepository.js";
 
 export const isAuth = async (req, res, next) => {
   const authHeader = req.get('Authorization');
-  if (!(authHeader && authHeader.startsWith('Bearer '))) return res.status(Exception.AUTH_ERROR.statusCode).json(Exception.AUTH_ERROR);
+  if (!(authHeader && authHeader.startsWith('Bearer'))) {
+    return res.status(Exception.AUTH_ERROR.statusCode).json(Exception.AUTH_ERROR);
+  }
 
   const token = authHeader.split(' ')[1];
   jwt.verify(
@@ -13,21 +15,25 @@ export const isAuth = async (req, res, next) => {
     process.env.SECRET_KEY,
     async (error, decoded) => {
       if (error) {
-        // 토큰이 만료된 경우의 처리
         if (error instanceof jwt.TokenExpiredError) {
           return res.status(Exception.AUTH_EXPIRED.statusCode).json(Exception.AUTH_EXPIRED);
         } else {
-          // 다른 JWT 관련 오류의 처리
           return res.status(Exception.AUTH_ERROR.statusCode).json(Exception.AUTH_ERROR);
         }
       }
-      const user = await UserRepository.findByNo(decoded.no);
-      if (!user) return res.status(Exception.AUTH_ERROR.statusCode).json(Exception.AUTH_ERROR);
-      req.user = user;
+      console.log("==========")
+      console.log(decoded)
+      const id = decoded.id; // 이ㅇ메일 추출
+      const user = await UserRepository.findById(id); // 이메일로 사용자 조회
+      if (!user) {
+        return res.status(Exception.AUTH_ERROR.statusCode).json(Exception.AUTH_ERROR);
+      }
+      req.user = user; // 사용자 정보 저장
       next();
     }
   );
 };
+
 
 export const handleKakaoLogin = async (accessToken, refreshToken, profile, done) => {
   try {

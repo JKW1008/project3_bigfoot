@@ -17,7 +17,7 @@ export const joinUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
   const { userId, userPassword } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   if (!userId || !userPassword) return res.status(400).json(new ResponseBody(400, "error", "아이디, 비밀번호를 확인해주세요.", ""));
   try {
     const loginResponseDto = await userLoginService({ userId, userPassword });
