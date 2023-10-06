@@ -1,16 +1,209 @@
-<%- include('common/header.ejs') %>
-  
-  <div class="container empty-background">
-    <nav class="nav">
-      <p class="title">용계역 여행</p>
-      <div class="sub-title">회원 관리</div>
-    </nav>
-    <div class="content-container">
-      <div id="usersNav" class="users-container"></div>
-    </div>
-  </div>
 
-  <%- include('common/footer.ejs') %>
-  <script src="/js/users.js"></script>
+    <%- include('common/header.ejs') %>
+    <div class="cintainer">
+      <div class="user">
+        <div class="user_img">
+          <a img></a>
+        </div>
+        <div class="user_profile">
+          <p>닉네임:<br /></p>
+          <p>내 스템프 갯수:</p>
+        </div>
+      </div>
+
+      <div class="stamp_DB">
+        <button>다음 코스 참여하기</button>
+        <button>나의 후기 작성하기</button>
+      </div>
+      <div class="mission">
+        <h3>스탬프 미션 완료 현황 <img src="../file/Q.png" /></h3>
+        <div class="list">
+          <p>예술과과학</p>
+          <p>역사와문화</p>
+          <p>자연와휴식</p>
+          <p>관광과쇼핑</p>
+        </div>
+      </div>
+      <div class="stamp_container">
+        <h2>자동 음모 스탬프 모음<img src="../file/Q.png"</h2>
+        <div class="tabs">
+          <!--라벨-->
+          <input id="tab_1" type="radio" name="tab_item" checked />
+          <label class="tab_item tab_yellow" for="tab_1">예술과 과학</label>
+          <input id="tab_2" type="radio" name="tab_item" />
+          <label class="tab_item tab_brown" for="tab_2">역사와 문화</label>
+          <input id="tab_3" type="radio" name="tab_item" />
+          <label class="tab_item tab_green" for="tab_3">자연과 휴식</label>
+          <input id="tab_4" type="radio" name="tab_item" />
+          <label class="tab_item tab_pink" for="tab_4">관광과 쇼핑</label>
+          <!--라벨 내용1-->
+          <div class="tab_content tab_yellow" id="tab_1_content">
+            <div class="tab_1-1">
+              <div><p>대구 미술관</p></div>
+              <div>
+                <p>삼덕동</p>
+                <p>갤러리 골목</p>
+              </div>
+              <div>
+                <p>대구</p>
+                <p>국립 박물관</p>
+              </div>
+            </div>
+            <div class="tab_1-2">
+              <div>
+                <p>대구</p>
+                <p>어린이 세상</p>
+              </div>
+              <div>
+                <p>김광석 거리</p>
+              </div>
+              <div>
+                <p>대구 문화</p>
+                <p>예술 회관</p>
+              </div>
+            </div>
+            <div class="tab_1-3">
+              <div>
+                <p>대구</p>
+                <p>예술 발전소</p>
+              </div>
+              <div>
+                <p>대구</p>
+                <p>오페라하우스</p>
+              </div>
+              <div>
+                <p>마비정</p>
+                <p>벽화마을</p>
+              </div>
+            </div>
+          </div>
+          <!--라벨 내용2-->
+          <div class="tab_content tab_brown" id="tab_2_content">
+            <div class="tab_2-1">
+              <div>
+                <p>대구</p>
+                <P>근대 역사관</P>
+              </div>
+              <div>
+                <p>계산공원</p>
+              </div>
+              <div>
+                <p>3.1운동</p>
+                <p>만세 길</p>
+              </div>
+            </div>
+            <div class="tab_2-2">
+              <div>
+                <p>천라언덕</p>
+              </div>
+              <div>
+                <p>대구</p>
+                <p>제일 교회</p>
+              </div>
+              <div>
+                <p>은혜의 정원</p>
+              </div>
+            </div>
+            <div class="tab_2-3">
+              <div>
+                <p>향촌 문화관</p>
+              </div>
+              <div>
+                <p>대구</p>
+                <p>향토 역사관</p>
+              </div>
+              <div>
+                <p>모명제 한국</p>
+                <p>전통 문화체험관</p>
+              </div>
+            </div>
+          </div>
+          <!--라벨 내용3-->
+          <div class="tab_content tab_green" id="tab_3_content">
+            <div class="tab_3-1">
+              <div>
+                <p>에코테마파크</p>
+                <P>대구 숲</P>
+              </div>
+              <div>
+                <p>수성 못</p>
+              </div>
+              <div>
+                <p>동촌 유원지</p>
+              </div>
+            </div>
+            <div class="tab_3-2">
+              <div>
+                <p>대구 이곡</p>
+                <p>장미 공원</p>
+              </div>
+              <div>
+                <p>하중도</p>
+              </div>
+              <div>
+                <p>팔공산</p>
+                <p>케이블카</p>
+              </div>
+            </div>
+            <div class="tab_3-3">
+              <div>
+                <p>사문진</p>
+              </div>
+              <div>
+                <p>이서 공원</p>
+              </div>
+              <div>
+                <p>안심 습지</p>
+              </div>
+            </div>
+          </div>
+
+          <!--라벨 내용4-->
+          <div class="tab_content tab_pink" id="tab_4_content">
+            <div class="tab_4-1">
+              <div>
+                <p>E-월드</p>
+              </div>
+              <div>
+                <p>대구</p>
+                <p>현대 백화점</p>
+              </div>
+              <div>
+                <p>대구</p>
+                <p>신세계 백화점</p>
+              </div>
+            </div>
+            <div class="tab_4-2">
+              <div>
+                <p>서문시장</p>
+              </div>
+              <div>
+                <p>삼성</p>
+                <p>라이온즈 파크</p>
+              </div>
+              <div>
+                <p>강정고령보</p>
+              </div>
+            </div>
+            <div class="tab_4-3">
+              <div>
+                <p>앞산 전망대</p>
+              </div>
+              <div>
+                <p>대구</p>
+                <P>스타디움</P>
+              </div>
+              <div>
+                <p>대구</p>
+                <p>아쿠아리움</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('common/footer.ejs') %>
+    <script src="/js/users.js"></script>
   </body>
 </html>
