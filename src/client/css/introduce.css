@@ -1,0 +1,209 @@
+/* body{
+  overflow: hidden;
+} */
+
+.introduce-content-wrap{
+  padding: 0;
+}
+.introduce-main-wrap{
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+/* 지도부분 */
+.content-container-introduce {
+  width: 100vw;
+  min-height: calc(100vh - 400px);
+  margin-top: 60px;
+}
+.introduce-location-map{
+  height: 600px !important;
+}
+/* 토글 슬라이드 부분 */
+.introduce-wrap {
+  position: absolute;
+  width: 90%;
+  min-width: 350px;
+  bottom: -185px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 10px 10px 0px 0px;
+  background: #fff;
+  box-shadow: 0px -3px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* transition: all 0.5s; */
+  z-index: 10;
+}
+.introduce-wrap.move {
+  bottom: 35px;
+}
+.introduce-wrap .slideUP-button {
+  width: 60%;
+  height: 10px;
+  margin: 1rem 0;
+  border-radius: 5px;
+  background: #f1f0f1;
+}
+.introduce-wrap h1 {
+  padding: 10px 0 10px 0;
+  font-weight: 900;
+  color: #353535;
+}
+.introduce-content-wrap label p{
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+/* 탭메뉴 */
+/* 탭 전체 스타일 */
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* 탭 스타일 */
+.tab_item {
+  width: calc(100% / 4 - 10px);
+  padding: 1rem 0;
+  background-color: #f8f8f8;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  text-align: center;
+  /* font-weight: bold; */
+  /* transition: all 0.2s; */
+}
+.tap-art {
+  background-image: url("../file/introduce/art-main.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 1rem;
+}
+.tap-history {
+  background-image: url("../file/introduce/history-main.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 1rem;
+}
+.tap-healing {
+  background-image: url("../file/introduce/healing-main.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 1rem;
+}
+.tap-shopping {
+  background-image: url("../file/introduce/shopping-main.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 1rem;
+}
+label.tab_item {
+  padding: 1rem 0;
+}
+
+/* 라디오 버튼 UI삭제*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/* 탭 컨텐츠 스타일 */
+.tab_content {
+  display: none;
+  /* padding: 40px 40px 0; */
+  clear: both;
+  /* overflow: hidden; */
+}
+
+/* 선택 된 탭 콘텐츠를 표시 */
+#art:checked ~ #art_content,
+#history:checked ~ #history_content,
+#healing:checked ~ #healing_content,
+#shopping:checked ~ #shopping_content {
+  display: block;
+}
+
+/* 선택된 탭 스타일 */
+.tabs input:checked + .tab_item {
+  background: #efe3eb;
+  color: #353535;
+}
+
+/* 탭의 캐서셀 */
+
+.swiper-slide {
+  position: relative;
+}
+.swiper-slide img {
+  width: 100%;
+  object-fit: cover;
+}
+.introduce-swiper-text-wrap {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.introduce-swiper-text-wrap h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: normal;
+  padding-bottom: 10px;
+}
+.introduce-link-wrap {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.introduce-link-wrap div {
+  width: 30%;
+  color: #353535;
+  font-size: 11px;
+  text-align: center;
+  line-height: normal;
+  padding: 5px 0;
+  border-radius: 5px;
+  background: #efe3eb;
+  cursor: pointer;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff !important;
+}
+
+/* 예술과 과학 세부 */
+.art-introduce-text-wrap,
+.history-introduce-text-wrap,
+.healing-introduce-text-wrap,
+.shopping-introduce-text-wrap {
+  text-align: start;
+}
+.art-introduce-text-wrap h2,
+.history-introduce-text-wrap h2,
+.healing-introduce-text-wrap h2,
+.shopping-introduce-text-wrap h2 {
+  padding: 10px 0;
+  font-size: 13px;
+}
+.art-introduce-text-wrap p,
+.history-introduce-text-wrap p,
+.healing-introduce-text-wrap p,
+.shopping-introduce-text-wrap p {
+  font-size: 11px;
+}

@@ -1,196 +1,163 @@
 const locationMap = document.getElementById("location-map");
-
-let clickCourse = 0;
-let courseListInfo;
-let isMapDrawn = false;
 let map;
 let markers = [];
+let isMapDrawn = false;
 let userLatitude;
 let userLongitude;
 
-/**
- * 서버에 요청을해 코스 리스트 정보를 가져옵니다.
- */
-const getCourseList = async () => {
-  const accessToken = localStorage.getItem("accessToken");
-  if (!accessToken) {
-    window.location.href = "/login?error=need_login";
-  }
-  try {
-    const response = await fetch('/api/course', {
-      headers: { Authorization: `Bearer ${accessToken}` }
-    });  
-    
-    if(response.status == 200) {
-      const result = await response.json();
-      courseListInfo = result.data;
-    } else if (response.status === 401) {
-      if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
-      else return window.location.href = "/login?error=need_login";
-    } 
-  } catch(error) {
-    console.error("Error:", error);
-    return msgAlert("bottom", "서버 통신 오류", "error");
-  }
-  afterGetCourseList();
-}
-const afterGetCourseList = () => {
-  makeNavHtml(courseListInfo);
-  configureLocationWatch();
-}
+// TODO 추후 사라질 수 있음 
+let courseListInfo = [];
+let clickCourseId = 0 ;
 
-/**
- * 코스 리스트 항목의 on css를 제거합니다.
- */
-const deleteCourseListNav = () => {
-  const courseWrap = document.querySelectorAll(".course");
-  for (let i = 0; i < courseWrap.length; i++) {
-    courseWrap[i].classList.remove("on");
-  }
-}
 
-/**
- * 지도를 움직입니다.
- */
-const panTo = (latitude, longitude) => {
-  const moveLatLon = new kakao.maps.LatLng(latitude, longitude);
-  map.panTo(moveLatLon);
-};
-
-/**
- * 코스 리스트 항목을 클릭할 때마다 실행되는 함수
- */
-const clickCourseList = (e, courseNo) => {
-  if (clickCourse !== courseNo) {
-    deleteCourseListNav();
-    e.currentTarget.classList.add("on");
-
-    let courseLatitude;
-    let courseLongitude;
-    if (courseNo === 0) {
-      courseLatitude = userLatitude;
-      courseLongitude = userLongitude;
-    } else {
-      let matchedCourse = courseListInfo.find(course => course.course_no === courseNo)
-      courseLatitude = matchedCourse.course_latitude;
-      courseLongitude = matchedCourse.course_longitude;
-    }
-    panTo(courseLatitude, courseLongitude);
-    clickCourse = courseNo;
-  }
-}
-
-/**
- * 코스 정보를 바탕으로 항목 HTML을 만듭니다.
- */
-const makeNavHtml = (courseList) => {
-  const courseWrap = document.getElementById("courseWrap");
-  let html = "";
-  for (let i = 0; i < courseList.length; i++) {
-    html += `<li class="course" onclick="clickCourseList(event, ${courseList[i].course_no})">`
-    if (courseList[i].user_courses_id) {
-      html += `<div class="mark-wrap"><img src="/file/complete.png" /></div>`
-    }
-    html += `<p>${courseList[i].course_name}</p>`
-    html += `<li>`
-  }
-  html += `<li id="myPosition" class="course on" onclick="clickCourseList(event, 0)">나의 위치</li>`
-  courseWrap.innerHTML = html;
-}
-
-/**
- * 지도에 마커를 추가합니다.
- */
-const addMarker = (position) => {
-  let marker = new kakao.maps.Marker({
-    position: position,
-  });
-  marker.setMap(map);
-  markers.push(marker);
-}
-
-/**
- * 지도에서 마커를 지웁니다.
- */
-const delMarkers = () => {
-  for (let i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
-  }
-  markers = [];
-}
-
-/**
- * 지도를 그립니다.
- */
+//지도 그리는 함수
 const drawMap = (latitude, longitude) => {
-  const options = {
-    center: new kakao.maps.LatLng(latitude, longitude),
-    level: 2,
-  };
-  map = new kakao.maps.Map(locationMap, options);
-  map.setZoomable(false);
+    const options = {
+        center: new kakao.maps.LatLng(latitude, longitude),
+        level : 2
+    };
+    map = new kakao.maps.Map(locationMap, options);
+    map.setZoomable(false);
 }
 
-/**
- * 카카오 지도 API에서 사용하는 마커 이미지를 생성합니다.
- */
-const createMarkerImage = (url, markerSize) => {
-  return new kakao.maps.MarkerImage(url, markerSize);
+//마커를 초기화 하는 함수(유저 마커가 새로생일때 기존꺼를 지워버리기 위한 용도)
+const deleteMarkers = () => {
+    for (let i = 0 ; i < markers.length; i++){
+        markers[i].setMap(null);
+    }
+    markers = [];
 }
 
-/**
- * 완주하지 않은 코스와 완주한 코스는 서로 다른 이미지로 정적인 마커로 추가합니다.
- */
-const addCourseMarker = (course) => {
-  let markerImageUrl = "/file/map_not_done.png";
-  let markerImageNormalSize = new kakao.maps.Size(24, 35);
-  if (course.user_courses_id) {
-    markerImageUrl = "/file/map_complete.jpg";
-    markerImageNormalSize = new kakao.maps.Size(25, 35);
-  }
-  const normalImage = createMarkerImage(markerImageUrl, markerImageNormalSize);
-  const latlng = new kakao.maps.LatLng(course.course_latitude, course.course_longitude);
-  new kakao.maps.Marker({
-    map: map,
-    position: latlng,
-    title: course.course_name,
-    image: normalImage,
-  });
-}
-
-/**
- * 코스 리스트 정보를 가지고 반복하며 마커 추가 함수를 호출합니다.
- */
-const setCourseMarker = () => {
-  for (let i = 0; i < courseListInfo.length; i++) {
-    addCourseMarker(courseListInfo[i]);
-  }
-}
-
-/**
- * 위치 정보를 이동이 감지될 때마다 가져오고 실행시킵니다.
- */
-const configureLocationWatch = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition((pos) => {
-      delMarkers();
-      userLatitude = pos.coords.latitude;
-      userLongitude = pos.coords.longitude;
-
-      if (!isMapDrawn) {
-        drawMap(userLatitude, userLongitude);
-        setCourseMarker();
-        isMapDrawn = true;
-      }
-      addMarker(new kakao.maps.LatLng(userLatitude, userLongitude));
-
-      if (clickCourse === 0) {
-        panTo(userLatitude, userLongitude);
-      }
+//유저 마커 그리기
+const addUserMarker = () => {
+    let marker = new kakao.maps.Marker({
+        map : map,
+        position : new kakao.maps.LatLng(userLatitude, userLongitude),
     });
-  } else {
-    msgAlert("bottom", "위치 정보를 가져올 수 없습니다.", "error");
-  }
+    //배열 만들어주기 -> 그려진 마커를 지우기 위해서 
+    markers.push(marker);
 }
 
-getCourseList();
+//해당 위치로 지도를 이동한다.
+const panTo = (latitude, longitude) => {
+    map.panTo(new kakao.maps.LatLng(latitude, longitude));
+}
+
+
+//코스 마커 그리기
+const addCourseMarker = (course) => {
+    let markerImage = "/file/map_not_done.png";
+    let markerSize = new kakao.maps.Size(24,35);
+
+    if(course.users_course_id){
+        markerImage = "/file/map_complete.jpg";
+        markerSize = new kakao.maps.Size(40,50);
+    }
+
+    const image = new kakao.maps.MarkerImage(markerImage, markerSize);
+    const position = new kakao.maps.LatLng(course.course_latitude, course.course_longitude);
+    new kakao.maps.Marker({
+        map : map,
+        position : position,
+        title : course.course_name,
+        image : image
+    })
+}
+
+//모든 코스를 돌면서 마커를 그리기 위한 함수
+const allCoutseMarker = () => {
+    for (let i = 0 ; i <courseListInfo.length; i++){
+        addCourseMarker(courseListInfo[i])
+    }
+}
+
+const clickCourseList =(e, courseId) => {
+    if (clickCourseId !== courseId){
+        const courseWrap = document.querySelectorAll(".course");
+        for (let i = 0; i <courseWrap.length; i++){
+            courseWrap[i].classList.remove("on")
+        }
+        e.currentTarget.classList.add("on");
+
+        let courseLetitude;
+        let courseLongitude;
+
+        if (courseId === 0) {
+            courseLetitude = userLatitude;
+            courseLongitude = userLongitude;
+        } else{
+            let matchedCourse = courseListInfo.find(course => course.course_id === courseId);
+            courseLetitude = matchedCourse.course_latitude;
+            courseLongitude = matchedCourse.course_longitude;
+        }
+        panTo(courseLetitude, courseLongitude);
+        clickCourseId = courseId;
+
+    }
+}
+
+
+
+// 현재 위치 감시 함수 
+// -> 위치정보를 가져오는 허락이 있으면 위치정보가 갱신될때마다 계속 정보를 가지고 함수를 실행시켜준다. 
+const configurationLocationWatch = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition((position) => {
+            //지도상 위에 있는 마커 지우기
+            deleteMarkers();
+
+            //유저 위치 받아오기 
+            userLatitude = position.coords.latitude;
+            userLongitude = position.coords.longitude;
+
+            if(!isMapDrawn){ //!false; => true
+                drawMap(userLatitude, userLongitude);
+                isMapDrawn = true;
+            }
+
+            //유저 마커 그리기
+            addUserMarker();
+            allCoutseMarker();
+            panTo(userLatitude, userLongitude);
+        })
+    }
+}
+
+
+const makeNavigationHtml = () => {
+    const courseWrap = document.getElementById("course-wrap")
+    console.log(courseWrap);
+    let html = "";
+   
+    for (let i = 0; i < courseListInfo.length; i++){
+        html += `<li class="course" onclick="clickCourseList(event, ${courseListInfo[i].course_id})">`
+        if (courseListInfo[i].users_course_id){
+            html += `<div class="mark-wrap"><img src="/file/complete.png"/></div>`
+        }
+        html += `   <p>${courseListInfo[i].course_name}</p>`
+        html += `</li>`
+    }
+
+    html += `<li id="myPosition" class="course on" onclick="clickCourseList(event,0)">나의위치</li>`
+
+    courseWrap.innerHTML = html;
+}
+
+//코스 정보 받아온 다음에 할 일  
+const afterGetCourseList = () => {
+    configurationLocationWatch();
+}
+
+// 백엔드 서버로 코스정보 요청
+const getCourseListFetch = async () => {
+    const response = await fetch("/api/courses")
+    console.log(response);
+
+    const result = await response.json();
+    courseListInfo = result;
+
+    afterGetCourseList();
+    makeNavigationHtml();
+}
+
+getCourseListFetch();

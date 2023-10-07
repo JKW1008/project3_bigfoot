@@ -1,9 +1,270 @@
-<%- include('common/header.ejs') %>
-    
-  <div class="container basic-background">
-    <p class="main-title">용계역</p>
-  </div>
+<!-- 스플래쉬 화면 -->
+<div class="splash" id="splash">
+  <img class="splash_bg" src="../file/mainimg/Splash.png" alt="" />
+  <img class="splash_logo" src="../file/splash_logo.png" alt="" />
+</div>
+
+
+<div class="container">
+
+  <!-- mainTitle -->
+  <section class="mainTitle">
+    <p>[대발자국]과 함께하는</p>
+    <p>대구 스탬프 투어!</p>
+  </section>
+
+  <!-- swiper-slide -->
+  <section id="swiper-wrap">
+    <!-- Swiper -->
+    <div class="swiper mySwiper swiper-container swiper1">
+      <div class="swiper-wrapper swiper1-wrapper">
+        <div class="swiper-slide swiper1-item">
+          <img src="../file/mainimg/mainbg-1.png" alt="mainimg1" />
+          <div class="mainText-wrap">
+            <h1>대구 오페라 하우스</h1>
+            <p>
+              베를린 필하모닉 분위기를 내는 웅장한 건물로, 대구 오페라
+              축제<살로메>를 앞두고 있다.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide swiper1-item">
+          <img src="../file/mainimg/mainbg-2.png" alt="mainimg2" />
+          <div class="mainText-wrap">
+            <h1>대구 근대 역사관</h1>
+            <p>
+              대구의 근대 역사에 대해 알 수 있는 곳으로, 기증유물 작은 전시
+              -세번째-가 열리고 있다.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide swiper1-item">
+          <img src="../file/mainimg/mainbg-3.png" alt="mainimg3" />
+          <div class="mainText-wrap">
+            <h1>대구 숲</h1>
+            <p>
+              도심 속에서 자연을 있는 에코테마파크로, 힐링과 낭만을 느낄 수
+              있다.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide swiper1-item">
+          <img src="../file/mainimg/mainbg-4.png" alt="mainimg4" />
+          <div class="mainText-wrap">
+            <h1>이월드</h1>
+            <p>
+              대구의 대표적인 테마파크로, 재미있는 놀이기구와 83타워가 유명하다.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next swiper1-btn1"></div>
+      <div class="swiper-button-prev swiper1-btn2"></div>
+    </div>
+  </section>
+
+  <!-- 버튼 2개 -->
+  <section class="button-wrapper">
+    <!-- 튜토리얼 모달창  -->
+    <div id="tutorial-popup">
+      <div id="tutorial-popmenu">
+        <div class="tutorial-exit">
+          <img src="../file/mainimg/modal-exit.png" alt="exitIcon" />
+        </div>
+       
+        <img
+          class="tutorial-popupImg"
+          src="../file/mainimg/modal-tutorial.png"
+          alt="tutorialIcon"
+        />
+        <button class="tutorial-popup-btn" onclick="location.href='tutorialCourse'">
+          코스를 어떻게 설정하나요?
+        </button>
+        <button class="tutorial-popup-btn" onclick="location.href='tutorialQr'">
+          QR 인증하는 방법이 무엇인가요?
+        </button>
+        <button class="tutorial-popup-btn" onclick="location.href='tutorialStamp'">
+          미션 스탬프와 자동인증 스탬프는 뭐가 다른건가요?
+        </button>
+      </div>
+    </div>
+    <button class="tutorial tutorial-button">
+      [대발바닥] <br />
+      200% 사용법
+    </button>
+
+    <!-- 로그인 모달 팝업창 -->
+    <div id="login-popup">
+      <div id="login-popmenu">
+        <div class="login-exit">
+          <img src="../file/mainimg/modal-exit.png" alt="exitIcon" />
+        </div>
+        <img
+          class="login-popupIcon"
+          src="../file/mainimg/model.png"
+          alt="loginPopupIcon"
+        />
+        <p>로그인 후 사용 가능한 기능입니다.</p>
+      </div>
+    </div>
+    <button class="myStamp login-button">
+      나의 <br />
+      스탬프 확인하기
+    </button>
+  </section>
+
+  <!-- 인기장소 -->
+  <section class="place-wrapper">
+    <div class="place-title">
+      <p>인기장소</p>
+    </div>
+    <div class="place">
+      <div class="place-item">
+        <img src="../file/mainimg/place-img1.png" alt="인기장소1" />
+        <p class="place-item-title">예술과 과학</p>
+        <p class="place-item-subTitle">[ 김광석거리 ]</p>
+        <p class="place-item-text">
+          싱어송라이터 김광석을 기리기 위하여 신천둑길을 따라 조성된 길
+        </p>
+      </div>
+      <div class="place-item">
+        <img src="../file/mainimg/place-img2.png" alt="인기장소2" />
+        <p class="place-item-title">역사와 문화</p>
+        <p class="place-item-subTitle">[ 계산성당 ]</p>
+        <p class="place-item-text">
+          경상도에서 가장 오래된 성당으로, 대구와 역사를 함께한 성당
+        </p>
+      </div>
+      <div class="place-item">
+        <img src="../file/mainimg/place-img3.png" alt="인기장소3" />
+        <p class="place-item-title">자연과 휴식</p>
+        <p class="place-item-subTitle">[ 동촌유원지 ]</p>
+        <p class="place-item-text">
+          오래전부터 대구시민들이 즐겨찾는 대구시민들만 아는 휴식장소
+        </p>
+      </div>
+      <div class="place-item">
+        <img src="../file/mainimg/place-img4.png" alt="인기장소4" />
+        <p class="place-item-title">관광과 쇼핑</p>
+        <p class="place-item-subTitle">[ 현대백화점 ]</p>
+        <p class="place-item-text">
+          고품격 명품 백화점 컨셉을 가진 쇼핑하기 즐거운 쇼핑장소
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 후기 -->
+  <section class="review-wrapper">
+    <div class="review-title">
+      <p>후기</p>
+    </div>
+    <div class="swiper mySwiper swiper-container review-swiper2">
+      <div class="swiper-wrapper review-swiper2-wrapper">
+        <div class="swiper-slide review-swiper2-item">
+          <div class="review-img">
+            <img src="../file/mainimg/review-img1.png" alt="review-img1" />
+          </div>
+          <div class="review-text">
+            <h2>[#수성못]</h2>
+            <p>
+              대구 첫방문으로 수성못에 왔어요! 귀여운 강아지도 보고 산책하는
+              사람도 많았어요! 주위에 맛집도 많아요!
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide review-swiper2-item">
+          <div class="review-img">
+            <img src="../file/mainimg/review-img2.png" alt="review-img2" />
+          </div>
+          <div class="review-text">
+            <h2>[#서문시장]</h2>
+            <p>
+              스탬프 찍으러 서문시장에 도착! 진짜 큰 전통시장이라 볼 것도
+              많았어요. 저녁에 오니까 야시장도 열려요.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide review-swiper2-item">
+          <div class="review-img">
+            <img src="../file/mainimg/review-img3.png" alt="review-img3" />
+          </div>
+          <div class="review-text">
+            <h2>[#3.1운동 만세길]</h2>
+            <p>
+              아이와 함께 왔어요. 책으로만 배우던 역사를 직접 가서 배우니까
+              아이가 너무 좋아하네요! 강추합니다.
+            </p>
+          </div>
+        </div>
+        <div class="swiper-slide review-swiper2-item">
+          <div class="review-img">
+            <img src="../file/mainimg/review-img4.png" alt="review-img3" />
+          </div>
+          <div class="review-text">
+            <h2>[#대구예술문화회관]</h2>
+            <p>
+              공연뿐만 아니라 전시도 하더라구요~ 대구에서 공연하면 여기가 가장
+              먼저 떠오를 것 같아요.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next swiper2-btn1"></div>
+      <div class="swiper-button-prev swiper2-btn2"></div>
+    </div>
+  </section>
+</div>
+
+<!-- 1번째 장소 소개 Swiper1 -->
+<script>
+  var swiper1 = new Swiper(".swiper-container.swiper1", {
+    loop: true,
+    navigation: {
+      nextEl: ".swiper1 .swiper-button-next",
+      prevEl: ".swiper1 .swiper-button-prev",
+    },
+  });
+</script>
+
+<!-- review swiper2 -->
+<script>
+  var swiper2 = new Swiper(".swiper-container.review-swiper2", {
+    loop: true,
+    navigation: {
+      nextEl: ".review-swiper2 .swiper-button-next",
+      prevEl: ".review-swiper2 .swiper-button-prev",
+    },
+  });
+</script>
+
+<!-- 튜토리얼 모달창 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".tutorial-button").click(function () {
+      $("#tutorial-popup").fadeIn();
+    });
+    $(".tutorial-exit").click(function () {
+      $("#tutorial-popup").fadeOut();
+    });
+  });
+</script>
+
+
+<!-- 로그인 모달창 -->
+<script>
+  $(document).ready(function () {
+    $(".login-button").click(function () {
+      $("#login-popup").fadeIn();
+    });
+    $(".login-exit").click(function () {
+      $("#login-popup").fadeOut();
+    });
+  });
+</script>
 
 <%- include('common/footer.ejs') %>
+
 </body>
 </html>

@@ -1,0 +1,43 @@
+
+.detail-wrapper{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 90px;
+}
+.detail-wrapper h1 {
+    color: #353535;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 30px 0 25px 20px;
+}
+.detail-wrapper .datail-text {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+.detail-wrapper .datail-text p:nth-child(1) {
+    margin-bottom: 10px;
+}
+
+.detail-info-container {
+    display: grid;
+    grid-template-columns: 70px auto;
+    border: 1px solid #828282;
+    border-radius: 4px;
+    color: #353535;
+}
+.detail-info-container .info-title {
+    text-align: center;
+    background: #EFE3EB;
+    font-size: 14px;
+}
+.detail-info-container .info-text{
+    font-size: 12px;
+    padding-left: 5px;
+}
+.detail-info-container .detail-info-item {
+    border: 1px solid #828282;
+    height: 30px;
+    line-height: 30px;
+}
+

@@ -1,0 +1,255 @@
+{
+  "art": [
+    {
+      
+      "photo": "../file/introduce/art-1.png",
+      "detailphoto":"../file/detail-img/detail-img1.png",
+      "name": "대구 미술관",
+      "description1":"현재, 4개의 전시가 진행되고 있으며, 삼성그룹 故이건희 회장이 고향, 대구를 배려하여 선정된 작품들을 기증한 것으로 유명합니다.",
+      "description2":"미술 관련 자료 열람서비스를 제공하고 있으며, 전시뿐만 아니라 행사도 진행하여 아이들과 관광오기에도 좋은 장소입니다.",
+      "address":"대구광역시 수성구 삼덕동 미술관로 40 대구미술관",
+      "operating_hours":"매주 월요일 휴무, 하절기(10시~19시)/동절기(10시~18시) 운영",
+      "contact":"053-803-7900",
+      "website":"http://daeguartmuseum.or.kr/index.do",
+      "latitude": "35.827746",
+      "longitude": "128.674444"
+    },
+    {
+      "name": "삼덕동 갤러리 골목",
+      "photo": "../file/introduce/art-2.png",
+      "latitude": "35.865692",
+      "longitude": "128.603343"
+    },
+    {
+      "name": "김광석 거리",
+      "photo": "../file/introduce/art-3.png",
+      "latitude": "35.859544",
+      "longitude": "128.606515"
+    },
+    {
+      "name": "대구 오페라 하우스",
+      "photo": "../file/introduce/art-4.png",
+      "latitude": "35.883487",
+      "longitude": "128.592330 "
+    },
+    {
+      "name": "대구 국립 과학관",
+      "photo": "../file/introduce/art-5.png",
+      "latitude": "35.686337",
+      "longitude": "128.465456"
+    },
+    {
+      "name": "대구 문화 예술 회관",
+      "photo": "../file/introduce/art-6.png",
+      "latitude": "35.844519",
+      "longitude": "128.559470"
+    },
+    {
+      "name": "마비정 벽화마을",
+      "photo": "../file/introduce/art-7.png",
+      "latitude": "35.778927",
+      "longitude": "128.541939"
+    },
+    {
+      "name": "대구 어린이 세상",
+      "photo": "../file/introduce/art-8.png",
+      "latitude": "35.846595",
+      "longitude": "128.627736"
+    },
+    {
+      "name": "대구 예술 발전소",
+      "photo": "../file/introduce/art-9.png",
+      "latitude": "35.875545",
+      "longitude": "128.584430"
+    }
+  ],
+  "history": [
+    {
+      "photo": "../file/introduce/history-1.png",
+      "detailphoto":"../file/detail-img/detail-img2.png",
+      "name": "대구 근대 역사관",
+      "description1":"대구의 근현대사를 모아 볼 수 있도록 한 박물관으로 1932년 조선식산은행 대구지점으로 건립되었으면 1954년부터 한국산업은행 대구지점으로 이용된 근대 문화유산입니다.",
+      "description2":"르네상식 양식의 건물로, 조형미가 뛰어나다고 평가받고 있는 역사관 건물입니다. 원형이 잘 보존되어 있어 2003년 대구시 유형 문화재로 지정되었습니다.",
+      "address":"대구광역시 중구 경상감영길 67",
+      "operating_hours":"매주 월요일 휴무(월요일이 휴무일 경우 그 다음날), 9:00 ~ 18:00",
+      "contact":"053-606-6431",
+      "website":"http://daeguartscenter.or.kr/dmhm/",
+      "latitude": "35.871741",
+      "longitude": "128.591135"
+    },
+    {
+      "name": "계산 성당",
+      "photo": "../file/introduce/history-2.png",
+      "latitude": "35.867931",
+      "longitude": "128.587818"
+    },
+    {
+      "name": "대구 제일교회",
+      "photo": "../file/introduce/history-3.png",
+      "latitude": "35.867828",
+      "longitude": "128.585998"
+    },
+    {
+      "name": "대구 향토역사관",
+      "photo": "../file/introduce/history-4.png",
+      "latitude": "35.873062",
+      "longitude": "128.579019"
+    },
+    {
+      "name": "3.1운동 만세길",
+      "photo": "../file/introduce/history-5.png",
+      "latitude": "37.109002",
+      "longitude": "126.799196"
+    },
+    {
+      "name": "은혜의 정원",
+      "photo": "../file/introduce/history-6.png",
+      "latitude": "35.867138",
+      "longitude": "128.585194"
+    },
+    {
+      "name": "모명재 한국 전통문화 체험관",
+      "photo": "../file/introduce/history-7.png",
+      "latitude": "35.857955",
+      "longitude": "128.651628"
+    },
+    {
+      "name": "청라언덕",
+      "photo": "../file/introduce/history-8.png",
+      "latitude": "35.866693",
+      "longitude": "128.585395"
+    },
+    {
+      "name": "향촌문화관",
+      "photo": "../file/introduce/history-9.png",
+      "latitude": "35.873359",
+      "longitude": "128.594222"
+    }
+  ],
+  "healing": [
+    {
+      "photo": "../file/introduce/healing-1.png",
+      "detailphoto":"../file/detail-img/detail-img3.png",
+      "name": "에코테마파크 대구숲",
+      "description1":"대구시민들에게 인지도가 높은 곳 중 하나로 학교나 유치원 현장체험학습 장소로 많이 오는 곳입니다. 입장요금이 있는 곳으로 정가는 9,500원입니다.",
+      "description2":"피톤치드 광장, 홍단풍길 등 자연을 즐길 수 있을 뿐만이 아니라 수영장, 레저놀이시설을 통한 액티비티도 즐길 수 있는 곳입니다.",
+      "address":"대구광역시 달성군 가창면 가창로 1003",
+      "operating_hours":"연중무휴, 10:00 ~ 18:00",
+      "contact":"053-761-7400/7401",
+      "website":"http://daeguforest.com/",
+      "latitude": "35.792929",
+      "longitude": "128.626411"
+    },
+    {
+      "name": "수성못",
+      "photo": "../file/introduce/healing-2.png",
+      "latitude": "35.827433",
+      "longitude": "128.617615"
+    },
+    {
+      "name": "하중도",
+      "photo": "../file/introduce/healing-3.png",
+      "latitude": "35.900943",
+      "longitude": "128.560179"
+    },
+    {
+      "name": "이서공원",
+      "photo": "../file/introduce/healing-4.png",
+      "latitude": "35.835024",
+      "longitude": "128.606532"
+    },
+    {
+      "name": "동촌유원지",
+      "photo": "../file/introduce/healing-5.png",
+      "latitude": "35.882540",
+      "longitude": "128.650857"
+    },
+    {
+      "name": "팔공산 케이블카",
+      "photo": "../file/introduce/healing-6.png",
+      "latitude": "35.990849",
+      "longitude": "128.694911"
+    },
+    {
+      "name": "안심습지",
+      "photo": "../file/introduce/healing-7.png",
+      "latitude": "35.864902",
+      "longitude": "128.747130"
+    },
+    {
+      "name": "대구 이곡 장미공원",
+      "photo": "../file/introduce/healing-8.png",
+      "latitude": "35.857895",
+      "longitude": "128.514823"
+    },
+    {
+      "name": "사문진",
+      "photo": "../file/introduce/healing-9.png",
+      "latitude": "35.811086",
+      "longitude": "128.477094"
+    }
+  ],
+  "shopping": [
+    {
+      "photo": "../file/introduce/shopping-1.png",
+      "detailphoto":"../file/detail-img/detail-img4.png",
+      "name": "이월드",
+      "description1":"대규모 롤로코스터만 3개를 보유한 규모가 있는 테마파크입니다. 놀이기구 중에서는 카멜백이 재밌기로 부메랑이 무섭기로 유명합니다.",
+      "description2":"이월드 내에 있는 83타워는 대구를 대표하는 랜드마크 중 하나로, 국내에서 존재하는 모든 놀이기구 중 가장 높습니다. 83타워의 전망대에서 보는 야경은 아릅답기로 유명합니다.",
+      "address":"대구광역시 달서구 두류공원로 200",
+      "operating_hours":"주중 10:00 ~ 21:00 주말 10:00 ~ 22:00",
+      "contact":"053-620-0001",
+      "website":"https://eworld.kr/",
+      "latitude": "35.853547",
+      "longitude": "128.563212"
+    },
+    {
+      "name": "대구 현대백화점",
+      "photo": "../file/introduce/shopping-2.png",
+      "latitude": "35.866647",
+      "longitude": "128.590635"
+    },
+    {
+      "name": "강정고령보",
+      "photo": "../file/introduce/shopping-3.png",
+      "latitude": "35.841432",
+      "longitude": "128.464426"
+    },
+    {
+      "name": "앞산 전망대",
+      "photo": "../file/introduce/shopping-4.png",
+      "latitude": "35.824777",
+      "longitude": "128.579458"
+    },
+    {
+      "name": "대구 신세계백화점",
+      "photo": "../file/introduce/shopping-5.png",
+      "latitude": "35.877920",
+      "longitude": "128.629161"
+    },
+    {
+      "name": "삼성 라이온즈파크",
+      "photo": "../file/introduce/shopping-6.png",
+      "latitude": "35.841266",
+      "longitude": "128.681545"
+    },
+    {
+      "name": "대구 아쿠아리움",
+      "photo": "../file/introduce/shopping-7.png",
+      "latitude": "35.877932",
+      "longitude": "128.628909"
+    },
+    {
+      "name": "서문시장",
+      "photo": "../file/introduce/shopping-8.png",
+      "latitude": "35.868670",
+      "longitude": "128.580876"
+    },
+    {
+      "name": "대구 스타디움",
+      "photo": "../file/introduce/shopping-9.png",
+      "latitude": "35.829891",
+      "longitude": "128.689870"
+    }
+  ]
+}
