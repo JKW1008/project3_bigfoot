@@ -1,12 +1,12 @@
+<%- include('common/header.ejs') %>
+
 <!-- 스플래쉬 화면 -->
 <div class="splash" id="splash">
   <img class="splash_bg" src="../file/mainimg/Splash.png" alt="" />
   <img class="splash_logo" src="../file/splash_logo.png" alt="" />
 </div>
 
-
 <div class="container">
-
   <!-- mainTitle -->
   <section class="mainTitle">
     <p>[대발자국]과 함께하는</p>
@@ -71,19 +71,25 @@
         <div class="tutorial-exit">
           <img src="../file/mainimg/modal-exit.png" alt="exitIcon" />
         </div>
-       
+
         <img
           class="tutorial-popupImg"
           src="../file/mainimg/modal-tutorial.png"
           alt="tutorialIcon"
         />
-        <button class="tutorial-popup-btn" onclick="location.href='tutorialCourse'">
+        <button
+          class="tutorial-popup-btn"
+          onclick="location.href='tutorialCourse'"
+        >
           코스를 어떻게 설정하나요?
         </button>
         <button class="tutorial-popup-btn" onclick="location.href='tutorialQr'">
           QR 인증하는 방법이 무엇인가요?
         </button>
-        <button class="tutorial-popup-btn" onclick="location.href='tutorialStamp'">
+        <button
+          class="tutorial-popup-btn"
+          onclick="location.href='tutorialStamp'"
+        >
           미션 스탬프와 자동인증 스탬프는 뭐가 다른건가요?
         </button>
       </div>
@@ -251,7 +257,6 @@
   });
 </script>
 
-
 <!-- 로그인 모달창 -->
 <script>
   $(document).ready(function () {
@@ -265,6 +270,3 @@
 </script>
 
 <%- include('common/footer.ejs') %>
-
-</body>
-</html>
