@@ -1,5 +1,30 @@
 <%- include('common/header.ejs') %>
-<h1>QR 인증하는 방법</h1>
+<div class="container tutorial-container">
+      <!-- Swiper -->
+  <div class="swiper mySwiper tutorial-QR-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="../file/tutorial/Q2_1.png" alt="tutorialCourse-img"></div>
+      <div class="swiper-slide"><img src="../file/tutorial/Q2_2.png" alt="tutorialCourse-img"></div>
+      <div class="swiper-slide"><img src="../file/tutorial/Q2_3.png" alt="tutorialCourse-img"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
 
 
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</div>
 <%- include('common/footer.ejs') %>

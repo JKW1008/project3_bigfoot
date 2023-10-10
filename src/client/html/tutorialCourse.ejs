@@ -1,5 +1,33 @@
 <%- include('common/header.ejs') %>
-<div class="container">
-    <h1>코스 설정 방법</h1>
+<div class="container tutorial-container">
+      <!-- Swiper -->
+  <div class="swiper mySwiper tutorial-course-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="../file/tutorial/Q1_1.png" alt="tutorialCourse-img"></div>
+      <div class="swiper-slide"><img src="../file/tutorial/Q1_2.png" alt="tutorialCourse-img"></div>
+      <div class="swiper-slide"><img src="../file/tutorial/Q1_3.png" alt="tutorialCourse-img"></div>
+      <div class="swiper-slide"><img src="../file/tutorial/Q1_4.png" alt="tutorialCourse-img"></div>
+      <div class="swiper-slide"><img src="../file/tutorial/Q1_5.png" alt="tutorialCourse-img"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
 </div>
 <%- include('common/footer.ejs') %>
