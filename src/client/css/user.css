@@ -13,10 +13,8 @@
   /* margin: 30px 20px 0 20px; */
   /* border: 1px solid black; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* transition: all 0.5s; */
-  z-index: 10;
+  flex-direction: row;
+  margin-top: 70px;
 }
 .user_img {
   width: 135px;
@@ -58,12 +56,17 @@
   font-weight: 500;
   border: 1px solid #ffecf8;
   border-radius: 5px;
+  cursor: pointer;
+}
+.mission {
+  width: 390px;
+  height: 129px;
+  margin: 30px 20px;
   background: #f1f0f1;
 }
-.introduce-wrap h1 {
-  padding: 10px 0 10px 0;
-  font-weight: 900;
-  color: #353535;
+.mission h3 {
+  font-size: 20px;
+  font-weight: bold;
 }
 .mission h3 img {
   cursor: pointer;
@@ -145,10 +148,9 @@
   line-height: 50px;
   font-size: 16px;
   text-align: center;
-  color: #fff;
+  color: #333333;
   display: block;
   float: left;
-  margin-right: 10px;
   text-align: center;
   font-weight: bold;
   margin: right 0; ;
@@ -166,16 +168,16 @@ input[name="tab_item_user"] {
 /* 탭 컨텐츠 스타일 */
 .tab_content {
   display: none;
-  /* padding: 40px 40px 0; */
+  padding: 40px 40px 0;
   clear: both;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 /* 선택 된 탭 콘텐츠를 표시 */
-#art:checked ~ #art_content,
-#history:checked ~ #history_content,
-#healing:checked ~ #healing_content,
-#shopping:checked ~ #shopping_content {
+#tab_1:checked ~ #tab_1_content,
+#tab_2:checked ~ #tab_2_content,
+#tab_3:checked ~ #tab_3_content,
+#tab_4:checked ~ #tab_4_content {
   display: block;
 }
 
