@@ -17,3 +17,4 @@ webRootViewRouter.get("/tutorialQr", (req, res) => res.render("tutorialQr"));
 webRootViewRouter.get("/tutorialStamp", (req, res) => res.render("tutorialStamp"));
 
 export default webRootViewRouter;
+
