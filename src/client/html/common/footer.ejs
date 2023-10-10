@@ -1,46 +1,45 @@
 <footer class="footer">
-    <ul>
-        <li>
-            <a href="/">
-                <img src="../../file/mainimg/footer-icon1.png" alt="메인">
-            </a>
-        </li>
-        <li>
-            <a href="/introduce">
-                <img src="../../file/mainimg/footer-icon2.png" alt="소개">
-            </a>
-        </li>
-        <li>
-            <a href="/course">
-                <img src="../../file/mainimg/footer-icon3.png" alt="코스">
-            </a>
-        </li>
-        <li>
-            <a href="/qr">
-                <img src="../../file/mainimg/footer-icon4.png" alt="QR">
-            </a>
-        </li>
-        <li>
-            <a href="/profile">
-                <img src="../../file/mainimg/footer-icon5.png" alt="mypage">
-            </a>
-        </li>
-    </ul>
+  <ul>
+    <li>
+      <a href="/">
+        <img src="../../file/mainimg/footer-icon1.png" alt="메인" />
+      </a>
+    </li>
+    <li>
+      <a href="/introduce">
+        <img src="../../file/mainimg/footer-icon2.png" alt="소개" />
+      </a>
+    </li>
+    <li>
+      <a href="/course">
+        <img src="../../file/mainimg/footer-icon3.png" alt="코스" />
+      </a>
+    </li>
+    <li>
+      <a href="/qr">
+        <img src="../../file/mainimg/footer-icon4.png" alt="QR" />
+      </a>
+    </li>
+    <li>
+      <a href="/profile">
+        <img src="../../file/mainimg/footer-icon5.png" alt="mypage" />
+      </a>
+    </li>
+  </ul>
 </footer>
 
-
 <script>
-const addClickStyle = () => {
+  const addClickStyle = () => {
     const currentPath = window.location.pathname;
-    //페이지 주소 들어갈때마다 가져온다. 
+    //페이지 주소 들어갈때마다 가져온다.
     const links = document.querySelectorAll(".footer ul li a");
-    //dom 태그를 가져온다. 
+    //dom 태그를 가져온다.
     links.forEach((link) => {
-        if (link.getAttribute("href") === currentPath){
-            link.parentElement .classList.add("on");
-            //글자가 일치하면 부모(li)에 "on" class를 추가한다. 
-        }
-    })
-}
-    document.addEventListener("DOMContentLoaded", addClickStyle)
+      if (link.getAttribute("href") === currentPath) {
+        link.parentElement.classList.add("on");
+        //글자가 일치하면 부모(li)에 "on" class를 추가한다.
+      }
+    });
+  };
+  document.addEventListener("DOMContentLoaded", addClickStyle);
 </script>

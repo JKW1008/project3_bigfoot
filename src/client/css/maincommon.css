@@ -1,143 +1,64 @@
-html, footer{
-    margin: 0 auto;
-  }
-  
-  .mainTitle {
-    margin: 5%;
-    font-size: 25px;
-    font-weight: 700;
-  }
-  
-  /* <!-- 버튼 2개 --> */
-  .button-wrapper {
-    display: flex;
-    padding: 5%;
-  }
-  .button-wrapper button {
-    width: 170px;
-    height: 70px;
-    border: none;
-    font-size: 17px;
-  }
-  .button-wrapper .tutorial {
-    border-radius: 3px;
-    background: #efe3eb;
-  }
-  .button-wrapper .myStamp {
-    border-radius: 3px;
-    background: #d3d3d3;
-  }
-  
-  /* 튜토리얼 모달창 */
-  #tutorial-popup {
-    display: none;
-    position: fixed;
-    z-index: 9;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-  #tutorial-popmenu {
-    width: 400px;
-    height: 700px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid #353535;
-    background: #FFF;
-  }
-  #tutorial-popmenu .tutorial-exit {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  
-  /* 머지 후 추가 해야 할 부분 */
-  
-  #tutorial-popmenu .tutorial-popupImg{
-    margin: 100px 0 50px 0;
-  }
-  
-  
-  #tutorial-popmenu .tutorial-popup-btn {
-    width: 350px;
-    height: 48px;
-    border-radius: 5px;
-    background: #EFE3EB;
-    color: #353535;
-    text-align: center;
-    font-size: 15px;
-    margin: 10px 0;
-  }
-  
-  
-  
-  /* 로그인 모달 팝업 창 */
-  #login-popup {
-    display: none; /*숨기기*/
-    position: fixed;
-    z-index: 9;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-  #login-popmenu {
-    width: 350px;
-    height: 233px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid #353535;
-    background: #FFF;
-  }
-  #login-popmenu .login-exit {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  #login-popmenu .login-popupIcon{
-    padding: 20px 0;
-  }
-  
-  
-  /* 인기 장소 */
-  .place-wrapper{
-    width: 90%;
-    margin: 0 auto;
-  }
-  .place-title {
-    margin: 7%;
-    font-size: 20px;
-    font-weight: 800;
-  }
-  .place {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    text-align: center;
-  }
-  .place p {
-    margin: 10px 0;
-  }
-  .place .place-item-title {
-    font-weight: 500;
-    font-size: 15px;
-  }
-  .place .place-item-subTitle {
-    font-size: 13px;
-  }
-  .place .place-item-text {
-    font-size: 11px;
-  }
-  
-  
-  /* 후기 */
-  .review-wrapper {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .review-title {
-    margin: 7%;
-    font-size: 20px;
-    font-weight: 800;
-  }
+@font-face {
+  font-family: "Pretendard-Regular";
+
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+
+  font-weight: 200;
+  font-style: normal;
+}
+
+.container {
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+/* -------- header -------- */
+.header-wrap {
+  position: fixed;
+  top: 0;
+  z-index: 22;
+  background-color: #fff;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  display: flex;
+  justify-content: end;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.header .headerLogo-wrap {
+  width: 45%;
+}
+.header .headerMenu {
+  margin-right: 20px;
+}
+
+/* -------- footer -------- */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 20;
+  background-color: #efe3eb;
+}
+.footer ul {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.footer ul li {
+  width: 20%;
+  height: 100%;
+}
+.footer ul li.on {
+  color: red;
+}
+.footer ul li a {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
