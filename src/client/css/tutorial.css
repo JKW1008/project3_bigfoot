@@ -3,17 +3,39 @@
     margin-top: 100px;
 }
 /* ---------- tutorialCourse ---------- */
+.tutorial-course-swiper{
+    width: 80%;
+    height: 100%;
+    overflow: visible;
+}
+.tutorial-course-swiper .swiper-button-next::after {
+    color: #DA3682;
+    font-weight: 900;
+    transform: translateY(-50%);
+}
 
+.tutorial-course-swiper .swiper-button-prev::after {
+    color: #DA3682;
+    font-weight: 900;
+    transform: translateY(-50%);
+}
+.tutorial-course-swiper .swiper-pagination{
+    color: aqua;
+}
 
-
-
-
-
-
-
-
-
-
+/* ---------- tutorialQR ---------- */
+.tutorial-QR-swiper {
+    width: 80%;
+    height: 100%;
+}
+.tutorial-QR-swiper .swiper-button-next::after{
+    color: black;
+    font-weight: 900;
+}
+.tutorial-QR-swiper .swiper-button-prev::after{
+    color: black;
+    font-weight: 900;
+}
 
 /* ---------- tutorialStamp ---------- */
 .tutorialStamp-box {
