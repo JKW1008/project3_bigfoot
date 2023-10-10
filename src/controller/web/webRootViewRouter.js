@@ -1,7 +1,7 @@
 import express from "express";
 
 const webRootViewRouter = express.Router();
-const data = require('../../data/info.json');
+const data = require('../../../data/info.json');
 
 webRootViewRouter.get("/", (req, res) => res.render("main"));
 webRootViewRouter.get("/introduce", (req, res) => res.render("introduce", {data})); 
