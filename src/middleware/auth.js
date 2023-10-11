@@ -38,32 +38,25 @@ export const isAuth = async (req, res, next) => {
 export const handleKakaoLogin = async (accessToken, refreshToken, profile, done) => {
   try {
     // 카카오에서 받아온 profile 정보를 변수에 담습니다.
-    const { 
-      id, provider, username,
-      _json: { 
-        kakao_account: { 
-          email = "",
-          profile: { 
-            profile_image_url = "" 
-          } = {} 
-        } = {} 
-      } = {}
-    } = profile;
+    const provider = profile.provider;
+    const id = profile.id;
+    const username = profile.username;
+    const profileImage = profile._json.properties.profile_image;
 
     // id와 provider(ex: kakao)를 가지고 정보를 찾아서 user가 있으면 그대로 반환 없으면 저장후 반환
     let user = await UserRepository.findByIdAndProvider(id, provider);
 
+
     if (!user) {
       const newUser = {
-        user_id : id,
-        email,
+        id,
         username,
-        image : profile_image_url,
+        profileImage,
         provider,
       };
       // user를 저장합니다.
       const { insertId } = await UserRepository.save(newUser);
-      user = { user_no : insertId, user_id : String(id), user_name : username, user_provider : provider  }; 
+      user = { user_id : insertId }; 
     }
     return done(null, user);
   } catch (error) {

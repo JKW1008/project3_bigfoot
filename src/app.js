@@ -3,6 +3,7 @@ import cors from "cors";
 import courseRouter from "./controller/courseRouter.js";
 import webRootViewRouter from "./controller/web/webRootViewRouter.js";
 import authRouter from "./controller/authRouter.js";
+import introduceRouter from "./controller/introduceRouter.js";
 
 const app = express();
 
@@ -50,6 +51,8 @@ app.use("/file", express.static("src/client/file"));
 // api
 app.use("/api/auth", authRouter);
 app.use("/api/course", courseRouter);
+app.use("/api/introduce", introduceRouter);
+
 
 // web
 app.use("/", webRootViewRouter)

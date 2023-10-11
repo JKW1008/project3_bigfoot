@@ -23,7 +23,8 @@ authRouter.get("/kakao/callback", (req, res, next) => {
       return res.redirect("/login?error=sns_login_failed");
     } else {
       // access token 만들기
-      const accessToken = jwt.sign({ no: user.user_no }, process.env.SECRET_KEY, { expiresIn: process.env.JWT_EXPIRE });
+      const accessToken = jwt.sign({ id: user.user_id }, process.env.SECRET_KEY, { expiresIn: process.env.JWT_EXPIRE });
+      // console.log(accessToken);
       return res.redirect("/login/callback?accessToken=" + accessToken);
     }
   })(req, res, next);
