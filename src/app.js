@@ -50,7 +50,7 @@ app.use("/file", express.static("src/client/file"));
 
 // api
 app.use("/api/auth", authRouter);
-app.use("/api/course", courseRouter);
+app.use("/api/courses", courseRouter);
 app.use("/api/introduce", introduceRouter);
 
 
