@@ -29,11 +29,11 @@
     height: 100%;
 }
 .tutorial-QR-swiper .swiper-button-next::after{
-    color: black;
+    color: #DA3682;
     font-weight: 900;
 }
 .tutorial-QR-swiper .swiper-button-prev::after{
-    color: black;
+    color: #DA3682;
     font-weight: 900;
 }
 
