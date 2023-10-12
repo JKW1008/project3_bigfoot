@@ -1,0 +1,142 @@
+.title-box {
+    width: 100%;
+    height: 150px;
+    background-image: url(../file/board/board-main.png);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title-box p:nth-child(1){
+    font-size: 20px;
+    font-weight: 700;
+}
+.title-box p:nth-child(2){
+    width: 60px;
+    height: 1px;
+    background: #FFF;
+}
+.title-box p:nth-child(3){
+    font-size: 15px;
+}
+
+.board-wrap {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 15px;
+    border-bottom: 2px solid #353535;
+}
+.board-top{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+.board-top .board-sum{
+    font-size: 10px;
+    display: flex;
+    align-items: end;
+}
+.board-top .board-sum span{
+    color: #BE3455;
+    padding-left: 3px;
+}
+.board-top .board-writing-btn{
+    width: 60px;
+    height: 26px;
+    border-radius: 5px;
+    background: #EFE3EB;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+}
+
+.board-wrap .board-conctent{
+    border-top: 2px solid #353535 ;
+    height: 30px;
+}
+.board-wrap .board-conctent span {
+    line-height: 30px;
+ }
+.board-wrap .board-conctent span:nth-child(1){
+    margin: 0 10px;
+}
+
+
+.board-wrap .board-list{
+    height: 40px;
+    border-top: 1px solid #353535;
+}
+.board-wrap .board-list span {
+   line-height: 40px;
+}
+.board-wrap .board-list a span {
+    cursor: pointer;
+}
+.board-wrap .board-list a span:hover {
+    color: #BE3455;
+}
+.board-wrap .board-list .board-list-num {
+    margin: 0 13px;
+}
+
+
+/* ---------- 글쓰기 boardWriting ----------*/
+
+.writing-container h1 {
+    text-align: center;
+    padding-bottom: 40px;
+}
+.writing-box {
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid #8F8F8F;
+}
+.writing-box .writing-btn {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.writing-box .writing-btn button {
+    margin-left: 10px;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+.writing-box .writing-input-wrap {
+    margin: 0 auto;
+}
+input[type="text"] {
+    width: 80%;
+    margin: 20px 0;
+}
+.writing-box .writing-title{
+    height: 34px;
+}
+
+
+/* ---------- boardListDatail ---------- */
+.boardListDatail-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+.boardListDatail-wrapper .boardListDatail-title {
+    text-align: center;
+    height: 40px;
+    border-top: 1px solid #353535;
+    border-bottom: 1px solid #353535;
+    margin-bottom: 10px;
+ 
+}
+.boardListDatail-wrapper .boardListDatail-title p{
+    line-height: 40px;
+}
+.boardListDatail-wrapper .boardListDatail-item img {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.boardListDatail-wrapper .boardListDatail-item p {
+    margin-bottom: 20px;
+}
