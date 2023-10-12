@@ -2,16 +2,14 @@
 .user {
   width: 390px;
   height: 200px;
-  /* margin: 30px 20px 0 20px; */
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
-  margin-top: 70px;
+  margin: 0 auto;
 }
 .user_img {
   width: 135px;
   height: 135px;
-  border: 1px solid black;
+  border: 1px solid rgba(53, 53, 53, 0.70);
   border-radius: 50%;
   margin: 30px 0 0 20px;
   display: flex;
@@ -22,7 +20,8 @@
   width: 175px;
   height: 71px;
   margin: auto;
-  border: 1px solid black;
+  border: 0.5px solid #353535;
+  padding-left: 15px;
 }
 .user_profile p {
   margin: 10px 10px 0 0;
@@ -31,17 +30,15 @@
   font-weight: 700;
 }
 .stamp_DB {
-  width: 390px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
-
-  margin: 30px 0 0 20px;
 }
 .stamp_DB button {
   width: 170px;
   height: 38px;
   background-color: #ffecf8;
-  margin: 30px 20px 30px 20px;
+  margin: 0px 20px 0px 20px;
   text-align: center;
   font-size: 15px;
   font-style: normal;
@@ -52,9 +49,11 @@
 }
 .mission {
   width: 390px;
-  height: 129px;
+  height: 130px;
   margin: 30px 20px;
   background: #f1f0f1;
+  border-radius: 5px;
+  padding: 10px;
 }
 .mission h3 {
   font-size: 20px;
@@ -66,7 +65,7 @@
 
 .list {
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 10px;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -80,13 +79,15 @@
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  text-align: center;
 }
 .stamp_container {
-  margin-left: 20px;
+  margin: 0 auto;
 }
 .stamp_container h3 {
   font-size: 20px;
-  margin: 10px;
+  font-weight: 700;
+  margin: 10px 0 0 30px;
 }
 .stamp_container h3 img {
   cursor: pointer;
@@ -95,7 +96,7 @@
 .mobal_1,.mobal_2 {
   display: none;
   border: 1px solid black;
-  width: 390px;
+  width: 350px;
   height: 236px;
   font-size: 16px;
   position: fixed;
@@ -107,10 +108,19 @@
   margin: 0 auto;
 }
 .Mditail {
-  margin-top: 80px;
+  padding-top: 60px;
+  width: 330px;
+  margin: 0 auto;
+}
+.Mditail1 p:nth-child(3){
+  margin-top: 30px;
+}
+.Mditail2 p:nth-child(3){
+  margin-top: 30px;
 }
 .mobal_1 p, .mobal_2 p {
   text-align: center;
+  font-size: 15px
 }
 
 .modal-button {
@@ -122,14 +132,10 @@
 
 .mobal_2.open{display: block;}
 
-.tabs {
-  margin-top: 50px;
-  padding-bottom: 40px;
-  background-color: #ffffff;
-  width: 390px;
-  height: 500px;
-  margin-left: 5px;
- 
+.tabs1 {
+  padding-top: 20px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 /* 탭 스타일 */
@@ -158,9 +164,9 @@ input[name="tab_item_user"] {
 }
 
 /* 탭 컨텐츠 스타일 */
-.tab_content {
+.tab_content1 {
   display: none;
-  padding: 40px 40px 0;
+  padding: 25px 30px 10px;
   clear: both;
   overflow: hidden;
 }
@@ -174,7 +180,7 @@ input[name="tab_item_user"] {
 }
 
 /* 선택된 탭 스타일 */
-.tabs input:checked + .tab_item_user {
+.tabs1 input:checked + .tab_item_user {
   /* background-color: #333333; */
   color: black;
 }
@@ -195,7 +201,7 @@ input[name="tab_item_user"] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .tab_1-1 div,
 .tab_1-2 div,
@@ -232,18 +238,18 @@ input[name="tab_item_user"] {
 .tab_pink {
   background: #ffeee4;
 }
-.tabs .tab_item_user {
+.tabs1 .tab_item_user {
   height: 30px;
   font-size: 15px;
   font-weight: normal;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-.tabs p {
+.tabs1 p {
   color: #353535;
 }
 
