@@ -1,59 +1,66 @@
- 
- <%- include('common/header.ejs') %>
- <div class="">
-   <div class="user">
-     <div class="user_img">
-       <img src="../file/user/user.png">
-     </div>
-     <div class="user_profile">
-       <p>닉네임:<br /></p>
-       <p>내 스템프 갯수:</p>
-     </div>
-   </div>
+<%- include('common/header.ejs') %>
+  <div class="container">
+    <div class="user">
+      <div class="user_img">
+        <img src="../file/user/user-icon.png">
+      </div>
+      <div class="user_profile">
+       <p>닉네임 : 반반치킨무많이</p>
+       <p>내 스템프 갯수 : 8개 </p>
+      </div>
+    </div>
 
-   <div class="stamp_DB">
-     <button>다음 코스 참여하기</button>
-     <button>나의 후기 작성하기</button>
-   </div>
-   <div class="mission">
-     <h3>스탬프 미션 완료 현황 <img  src="../file/icon/Q.png" id="img_1" /></h3>
-     <div class="list">
-       <p>예술과과학</p>
-       <p>역사와문화</p>
-       <p>자연와휴식</p>
-       <p>관광과쇼핑</p>
-     </div>
-   </div>
-   <div class="mobal_1" id="modal_1">
-     <button class="modal-button" onclick="closeModal('modal_1')">X</button>
-     <div class="Mditail">
-     <p>
-         각 카테고리별로 1개의 장소에 가서 인증을 하면
-     </p>
-     <p>
-         총 4개의 미션 스탬프를 얻을 수 있습니다.
-     </p>
-     <p>
-         ※ 미션 스탬프를 모두 모으면 상품을 받을 수 있습니다
-     </p>
-   </div>
- </div>
+    <div class="stamp_DB">
+     <button onclick="location.href='course'">
+      담은 코스 참여하기
+    </button>
+     <button onclick="location.href='/'">
+      나의 후기 작성하기
+    </button>
+    </div>
+    <div class="mission">
+      <h3>미션 스탬프 완료 현황 
+        <img src="../file/user/add.png" id="img_1" />
+      </h3>
+      <div class="list">
+        <p>예술과<br/>과학</p>
+        <p>역사와<br/>문화</p>
+        <p>자연와<br/>휴식</p>
+        <p>관광과<br/>쇼핑</p>
+      </div>
+    </div>
 
+    <div class="mobal_1" id="modal_1">
+      <button class="modal-button" onclick="closeModal('modal_1')">X</button>
+      <div class="Mditail Mditail1">
+        <p>
+          각 카테고리별로 1개의 장소에 가서 인증을 하면
+        </p>
+        <p>
+          총 4개의 미션 스탬프를 얻을 수 있습니다.
+        </p>
+
+        <p>
+          ※ 미션 스탬프를 모두 모으면 상품을 받을 수 있습니다.
+        </p>
+      </div>
+    </div>
 
    <div class="stamp_container">
-     <h3>자동 음모 스탬프 모음<img id="img_2"src="../file/icon/Q.png"></h3>
-
+    <h3>자동 응모 스탬프 모음
+      <img id="img_2"src="../file/user/add.png">
+    </h3>
      <div class="mobal_2" id="modal_2">
        <button class="modal-button" onclick="closeModal('modal_2')">X</button>
-       <div class="Mditail">
+       <div class="Mditail Mditail2">
        <P>카테고리와 상관없이 대구 관광지 10곳을 인증하여</P>
-       <P>10개의 스탬프를 받으면 상품에 자동응모가 됩니다</P>
-       <P>※ 자동응모가 된 이후로도 인증을 하면 스탬프를</P><p>받을 수 있습니다</P>
-       <P>※ 미션 스탬프를 모두 모아야 상품에 응모 가능합니다</P>
+       <P>10개의 스탬프를 받으면 상품에 자동응모가 됩니다.</P>
+       <P>※ 자동응모가 된 이후로도 인증을 하면 스탬프를 받을 수 있습니다.</P>
+       <P>※ 미션 스탬프를 모두 모아야 상품에 응모 가능합니다.</P>
      </div>
-     </div>
+    </div>
 
-     <div class="tabs">
+     <div class="tabs1">
        <!--라벨-->
        <input id="tab_1" type="radio" name="tab_item_user" checked />
        <label class="tab_item_user tab_yellow" for="tab_1">예술과 과학</label>
@@ -64,7 +71,7 @@
        <input id="tab_4" type="radio" name="tab_item_user" />
        <label class="tab_item_user tab_pink" for="tab_4">관광과 쇼핑</label>
        <!--라벨 내용1-->
-       <div class="tab_content tab_yellow" id="tab_1_content">
+       <div class="tab_content1 tab_yellow" id="tab_1_content">
          <div class="tab_1-1">
            <div><p>대구 미술관</p></div>
            <div>
@@ -105,7 +112,7 @@
          </div>
        </div>
        <!--라벨 내용2-->
-       <div class="tab_content tab_brown" id="tab_2_content">
+       <div class="tab_content1 tab_brown" id="tab_2_content">
          <div class="tab_2-1">
            <div>
              <p>대구</p>
@@ -146,7 +153,7 @@
          </div>
        </div>
        <!--라벨 내용3-->
-       <div class="tab_content tab_green" id="tab_3_content">
+       <div class="tab_content1 tab_green" id="tab_3_content">
          <div class="tab_3-1">
            <div>
              <p>에코테마파크</p>
@@ -186,7 +193,7 @@
        </div>
 
        <!--라벨 내용4-->
-       <div class="tab_content tab_pink" id="tab_4_content">
+       <div class="tab_content1 tab_pink" id="tab_4_content">
          <div class="tab_4-1">
            <div>
              <p>E-월드</p>
