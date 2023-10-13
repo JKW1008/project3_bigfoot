@@ -48,15 +48,15 @@ const checkUserInfo = async () => {
       localStorage.removeItem("accessToken");
       notLoginHtml();
       if (response.status == 401 && result.message === "토큰 만료") {
-        msgAlert("bottom", "인증 만료", "error");
+        msgAlert("center", "인증 만료", "error");
       } else {
-        msgAlert("bottom", "인증 실패", "error");
+        msgAlert("center", "인증 실패", "error");
       }
     }
   } catch(error) {
     console.error("Error:", error);
     notLoginHtml();
-    msgAlert("bottom", "서버 에러", "error");
+    msgAlert("center", "서버 에러", "error");
   }
 }
 

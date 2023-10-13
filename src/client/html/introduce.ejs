@@ -83,7 +83,7 @@
                         <!-- onclick 이벤트 핸들러에서 함수 호출 -->
                         <div onclick="tripLocation('<%= latitude %>', '<%= longitude %>')">위치 확인하기</div>
                         <div>
-                          <a href="/detail">자세히보기</a>
+                          <button class="btn_detail" data-idx="<%= data.history_and_culture[i].idx %>" data-table-name="<%= data.history_and_culture[i].table_name %>">자세히보기</button>
                         </div>
                       </div>
                     </div>
@@ -118,7 +118,7 @@
                         <!-- onclick 이벤트 핸들러에서 함수 호출 -->
                         <div onclick="tripLocation('<%= latitude %>', '<%= longitude %>')">위치 확인하기</div>
                         <div>
-                          <a href="/detail">자세히보기</a>
+                          <button class="btn_detail" data-idx="<%= data.nature_and_relaxation[i].idx %>" data-table-name="<%= data.nature_and_relaxation[i].table_name %>">자세히보기</button>
                         </div>
                       </div>
                     </div>
@@ -154,7 +154,7 @@
                         <!-- onclick 이벤트 핸들러에서 함수 호출 -->
                         <div onclick="tripLocation('<%= latitude %>', '<%= longitude %>')">위치 확인하기</div>
                         <div>
-                          <a href="/detail">자세히보기</a>
+                          <button class="btn_detail" data-idx="<%= data.tourism_and_shopping[i].idx %>" data-table-name="<%= data.tourism_and_shopping[i].table_name %>">자세히보기</button>
                         </div>
                       </div>
                     </div>

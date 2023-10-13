@@ -12,7 +12,7 @@ export const getArtsandScience = async () => {
             nature_and_relaxation: nature_and_relaxation,
             tourism_and_shopping: tourism_and_shopping,
         }
-        console.log("Data from service:", arts_and_science);
+        // console.log("Data from service:", arts_and_science);
         return coursArray;
     } catch (error) {
         console.error("Error in getArtsandScience:", error);
