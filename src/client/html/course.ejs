@@ -1,17 +1,27 @@
 <%- include('common/header.ejs') %>
 
-<div class="container empty-background">
-    <nav class="nav">
-        <p class="title">테스트 여행</p>
-        <div class="sub-title">코스 리스트</div>
-    </nav>
+<div class="course-container">
+  <nav class="nav">
+    <p class="title">내가 담은 나의 여행 코스</p>
+  </nav>
 
-    <div class="content-container">
-        <ul id="course-wrap" class="course-nav-ul"></ul>
-        <div id="location-map"></div>
-    </div>
+  <div class="content-container">
+    <div id="location-map"></div>
+    <ul id="course-wrap" class="course-nav-ul"></ul>
+  </div>
+  <!-- <div class="content-container">
+    <ul id="course-wrap" class="course-nav-ul">
+      <li class="course" onclick="clickCourseList(event)">
+        <div class="mark-wrap"><img src="/file/complete.png" /></div>
+        <div>
+          <p><span>1</span>코스이름</p>
+          <span onclick="deleteMyCourseList()">-</span>
+        </div>
+      </li>      
+    </ul>
+  </div> -->
 </div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=36b55f73185a63e716f9a576990e3a8b"></script>
-    <!-- course페이지 들어왔을때만 스크립트 실행 -->
-    <script src="/js/course.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=36b55f73185a63e716f9a576990e3a8b"></script>
+<!-- course페이지 들어왔을때만 스크립트 실행 -->
+<script src="/js/course.js"></script>
 <%- include('common/footer.ejs') %>

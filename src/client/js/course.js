@@ -92,7 +92,6 @@ const clickCourseList =(e, courseId) => {
         }
         panTo(courseLetitude, courseLongitude);
         clickCourseId = courseId;
-
     }
 }
 
@@ -134,11 +133,11 @@ const makeNavigationHtml = () => {
         if (courseListInfo[i].users_course_id){
             html += `<div class="mark-wrap"><img src="/file/complete.png"/></div>`
         }
-        html += `   <p>${courseListInfo[i].course_name}</p>`
+        html += `<div><p><span></span>${courseListInfo[i].course_name}</p><span onclick="deleteMyCourseList()">-</span></div>`
         html += `</li>`
     }
 
-    html += `<li id="myPosition" class="course on" onclick="clickCourseList(event,0)">나의위치</li>`
+    html += `<li id="myPosition" class="course mylocation on" onclick="clickCourseList(event,0)">나의위치</li>`
 
     courseWrap.innerHTML = html;
 }

@@ -25,7 +25,7 @@ const courseCheckFetch = async (qrCode) => {
   }
 
   try {
-    const response = await fetch('/api/course', {
+    const response = await fetch('/api/courses', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
