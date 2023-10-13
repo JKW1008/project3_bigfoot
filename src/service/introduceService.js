@@ -19,3 +19,7 @@ export const getArtsandScience = async () => {
         throw error;
     }
 }
+
+export const ContainCourse = async (user_id, table_name, course_id) => {
+    return await IntroduceRepository.containCourse(user_id, table_name, course_id);
+}

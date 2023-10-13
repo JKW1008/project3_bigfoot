@@ -40,4 +40,14 @@ export default class IntroduceRepository{
           throw error;
         }
       }
+
+      static async containCourse(user_id, table_name, course_id) {
+        const QUERY = `INSERT INTO containcourse (user_id, table_name, course_id) VALUES (?, ?, ?`;
+        try {
+          return await db.execute(QUERY, [user_id, table_name, course_id]).then((result) => result[0]);
+        } catch (error) {
+          console.error('Error in insert', error);
+          throw error;
+        }
+      }
 }
