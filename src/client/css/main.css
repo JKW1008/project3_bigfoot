@@ -83,7 +83,7 @@ html, footer{
   }
   #login-popmenu {
     width: 350px;
-    height: 233px;
+    height: 288px;
     text-align: center;
     border-radius: 5px;
     border: 1px solid #353535;
@@ -98,6 +98,14 @@ html, footer{
   }
   #login-popmenu .login-popupIcon{
     padding: 20px 0;
+  }
+  #login-popmenu .popup-loginBtn{
+    width: 310px;
+    height: 35px;
+    border-radius: 5px;
+    background: #EFE3EB;
+    margin-top: 20px;
+    font-weight: 700;
   }
   
   
