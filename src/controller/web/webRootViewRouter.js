@@ -16,8 +16,7 @@ webRootViewRouter.get("/users", (req, res) => res.render("users"));
 webRootViewRouter.get("/join", (req, res) => res.render("joinForm"));
 webRootViewRouter.get("/login", (req, res) => res.render("loginForm"));
 webRootViewRouter.get("/login/callback", (req, res) => res.render("loginCallback"));
-webRootViewRouter.get("/detail", detailPage,
-console.log(detaildata));
+webRootViewRouter.get("/detail", detailPage);
 webRootViewRouter.get("/tutorialCourse", (req, res) => res.render("tutorialCourse"));
 webRootViewRouter.get("/tutorialQr", (req, res) => res.render("tutorialQr"));
 webRootViewRouter.get("/tutorialStamp", (req, res) => res.render("tutorialStamp"));
