@@ -51,11 +51,15 @@
   <body>
     <header class="header">
       <div class="header-wrap">
+        <button id="backButton">
+          <i class="fa-solid fa-caret-left"></i>
+          <!-- <img src="/file/mainimg/backbutton.png" alt="뒤로가기"> -->
+        </button>
         <div class="headerLogo-wrap">
-          <a href="/#">
+          <a href="/">
             <img
               class="headerLogo"
-              src="../file/mainimg/logo.png"
+              src="/file/mainimg/logo.png"
               alt="headerlogo"
             />
           </a>
@@ -64,12 +68,34 @@
           <a href="/course">
             <img
               class="headerMenu"
-              src="../file/mainimg/logo-shopicon.png"
+              src="/file/mainimg/logo-shopicon.png"
               alt="rightMenu"
             />
           </a>
         </div>
       </div>
     </header>
+
+    <!-- 뒤로가기 버튼 -->
+    <script>
+    document.getElementById("backButton").addEventListener("click", function() {
+    window.history.back();
+    });
+
+    // 홈 화면에서 뒤로가기 버튼 안보이기
+    var backButton = document.getElementById("backButton");
+
+    // 현재 페이지의 루트 주소를 가져옴
+    var rootURL = window.location.origin;
+
+    // 뒤로가기 버튼을 홈 화면에서만 감춤
+    if (window.location.href === rootURL + "/") {
+      backButton.style.display = "none";
+    } else {
+      backButton.addEventListener("click", function() {
+        window.history.back();
+      });
+    }
+    </script>
   </body>
 </html>

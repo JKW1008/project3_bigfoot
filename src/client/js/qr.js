@@ -11,7 +11,7 @@ const courseCheckFetch = async (qrCode) => {
   }
   
   if(!qrCode) {
-    msgAlert("bottom", "잘못된 qr코드입니다.", "error");
+    msgAlert("center", "잘못된 qr코드입니다.", "error");
     setTimeout(startScan, 3000);
     return;
   }
@@ -19,7 +19,7 @@ const courseCheckFetch = async (qrCode) => {
   // 내 위치 정보 가져오기
   const { coords } = await getCurrentPosition();
   if (!coords) {
-    msgAlert("bottom", "위치정보를 가져올 수 없습니다.", "error");
+    msgAlert("center", "위치정보를 가져올 수 없습니다.", "error");
     setTimeout(startScan, 3000);
     return;
   }
@@ -46,20 +46,20 @@ const courseCheckFetch = async (qrCode) => {
         window.location.href = "/course";
       }, 1000); 
     } else if (response.status === 400) {
-      if (result.message === "위치 정보 없음") msgAlert("bottom", "위치정보를 가져올 수 없습니다.", "error");
-      else if (result.message === "위치 적용 범위 초과") msgAlert("bottom", "목표물의 100m 반경에 있어야합니다.", "error");
-      else msgAlert("bottom", "잘못된 qr코드입니다.", "error");
+      if (result.message === "위치 정보 없음") msgAlert("center", "위치정보를 가져올 수 없습니다.", "error");
+      else if (result.message === "위치 적용 범위 초과") msgAlert("center", "목표물의 100m 반경에 있어야합니다.", "error");
+      else msgAlert("center", "잘못된 qr코드입니다.", "error");
     } else if (response.status === 401) {
       if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
       else return window.location.href = "/login?error=need_login";
     } else if (response.status === 409) {  
-      msgAlert("bottom", "이미 방문한 코스입니다.", "error");
+      msgAlert3("center");
     } else {
-      msgAlert("bottom", "서버 에러", "error");
+      msgAlert("center", "서버 에러", "error");
     }
   } catch(error) {
     console.error("Error:", error);
-    msgAlert("bottom", "서버 통신 오류", "error");
+    msgAlert("center", "서버 통신 오류", "error");
   }
   setTimeout(startScan, 3000);
 }
@@ -91,7 +91,8 @@ function startScan() {
     })
     .catch(function (err) {
       console.error("Error accessing the camera", err);
-      msgAlert("bottom", "카메라 접근에 실패했습니다.", "error");
+      msgAlert("center", "카메라 접근에 실패했습니다.", "error");
+      // msgAlert3("center");
     });
 
   // 각 프레임에서 호출되어 QR 코드를 스캔하는 함수
@@ -130,20 +131,20 @@ function startScan() {
         );
         drawLine(
           code.location.topRightCorner,
-          code.location.bottomRightCorner,
+          code.location.centerRightCorner,
           "#FF0000"
         );
         drawLine(
-          code.location.bottomRightCorner,
-          code.location.bottomLeftCorner,
+          code.location.centerRightCorner,
+          code.location.centerLeftCorner,
           "#FF0000"
         );
         drawLine(
-          code.location.bottomLeftCorner,
+          code.location.centerLeftCorner,
           code.location.topLeftCorner,
           "#FF0000"
         );
-        
+        msgAlert2("center");
         // QR 코드에 저장된 데이터를 사용하여 어떤 작업을 수행합니다. 
         return courseCheckFetch(code.data);
       }
