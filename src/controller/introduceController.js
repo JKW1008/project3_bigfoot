@@ -17,13 +17,21 @@ export const containCourse = async (req, res) => {
   const user = req.user.user_id;
   const courseIdx = req.body.idx;
   const tableName = req.body.tableName;
+  const lat = req.body.lat;
+  const lon = req.body.lon;
 
   try {
-    const coursArray = await ContainCourse(user, tableName, courseIdx);   
-    return res.status(200).json(new ResponseBody(200, "success", "장바구니 저장 완료", coursArray));
+    const result = await ContainCourse(user, tableName, courseIdx, lat, lon);
+
+    if (result === true) {
+      return res.status(200).json(new ResponseBody(200, "success", "장바구니 저장 완료"));
+    } else if (result === "Data already exists") {
+      return res.status(400).json(new ResponseBody(400, "failed", "이미 저장된 코스 입니다."));
+    }
   } catch (e) {
     console.error(e);
-    if (e.statusCode) return res.status(e.statusCode).json({ statusCode: e.statusCode, statusText : e.statusText, message: e.message, data : e.data = "" });
+    if (e.statusCode) return res.status(e.statusCode).json({ statusCode: e.statusCode, statusText: e.statusText, message: e.message, data: e.data = "" });
     else return res.status(500).json(Exception.INTERNAL_SERVER_ERROR);
   }
 }
+

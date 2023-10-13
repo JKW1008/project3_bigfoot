@@ -20,6 +20,17 @@ export const getArtsandScience = async () => {
     }
 }
 
-export const ContainCourse = async (user_id, table_name, course_id) => {
-    return await IntroduceRepository.containCourse(user_id, table_name, course_id);
-}
+// 서비스에서 중복 검사 후 저장을 수행
+export const ContainCourse = async (user_id, table_name, course_id, lat, lon) => {
+    const isCourseExist = await IntroduceRepository.Existcourse(user_id, course_id);
+  
+    if (!isCourseExist) {
+      // 데이터가 존재하지 않으면 저장
+      await IntroduceRepository.containCourse(user_id, table_name, course_id, lat, lon);
+      return true;
+    } else {
+      // 데이터가 이미 존재하므로 저장하지 않음
+      return "Data already exists";
+    }
+  }
+  

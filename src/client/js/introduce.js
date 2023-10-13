@@ -105,7 +105,7 @@ btn_detail.forEach((box) => {
 });
 
 
-async function containCourse(tableName, idx, accessToken) {
+async function containCourse(tableName, idx, lat, lon, accessToken) {
   try {
     const response = await fetch('/api/introduce', {
       method: 'POST',
@@ -117,6 +117,8 @@ async function containCourse(tableName, idx, accessToken) {
       body: JSON.stringify({
         tableName,
         idx,
+        lat,
+        lon,
         accessToken
       }),
     });
@@ -127,6 +129,8 @@ async function containCourse(tableName, idx, accessToken) {
       setTimeout(() => {
         window.location.reload();
       }, 1000);
+    } else if (response.status === 400) {
+      msgAlert("center", result.message, "error");
     } else if (response.status === 401) {
       if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
       else return window.location.href = "/login?error=need_login";
@@ -146,8 +150,14 @@ btn_cotain.forEach((box) => {
   box.addEventListener("click", () => {
     const tableName = box.dataset.tableName;
     const idx = box.dataset.courseIdx;
+    const lat = box.dataset.lat;
+    const lon = box.dataset.lon;
     const accessToken = localStorage.getItem("accessToken");
 
-    containCourse(tableName, idx, accessToken);
+
+    if(!accessToken){
+      window.location.href = "/login?error=need_login";
+    }
+    containCourse(tableName, idx, lat, lon, accessToken);
   });
 });
