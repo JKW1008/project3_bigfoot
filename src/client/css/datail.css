@@ -4,6 +4,9 @@
     margin: 0 auto;
     margin-top: 90px;
 }
+.detail-wrapper .detail-img img {
+    width: 100%;
+}
 .detail-wrapper h1 {
     color: #353535;
     font-size: 20px;
@@ -18,7 +21,6 @@
 .detail-wrapper .datail-text p:nth-child(1) {
     margin-bottom: 10px;
 }
-
 .detail-info-container {
     display: grid;
     grid-template-columns: 70px auto;
