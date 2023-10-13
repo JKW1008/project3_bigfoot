@@ -105,15 +105,33 @@
     border: none;
     border-radius: 5px;
 }
+.writing-box .writing-btn .writing-btn2{
+    background-color: #F0D2E6;
+}
 .writing-box .writing-input-wrap {
+    width: 80%;
     margin: 0 auto;
 }
-input[type="text"] {
-    width: 80%;
-    margin: 20px 0;
+input[type="text"]{
+    width: 100%;
+    margin: 10px 0;
 }
-.writing-box .writing-title{
+input[type="file"]{
+    width: 100%;
+    background-color: #F0D2E6;
+}
+.writing-box .writing-input-wrap .writing-title{
     height: 34px;
+}
+.writing-box .writing-input-wrap .writing-file {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.writing-box .writing-input-wrap .writing-text{
+    height: 350px;
 }
 
 

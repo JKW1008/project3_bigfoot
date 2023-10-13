@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/introduce.css" />
     <link rel="stylesheet" href="/css/user.css">
     <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="../css/course.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
@@ -27,10 +28,13 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="/js/common.js"></script>
-    <!-- 폰트어썸 라이브러리 -->
+    <!-- 폰트어썸 CDN -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <!-- sweetalert2 라이브러리 -->
     <link
@@ -50,25 +54,42 @@
   <body>
     <header class="header">
       <div class="header-wrap">
+        <div id="backButton">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
         <div class="headerLogo-wrap">
-          <a href="/#">
-            <img
-              class="headerLogo"
-              src="../file/mainimg/logo.png"
-              alt="headerlogo"
-            />
+          <a href="/">
+            <img class="headerLogo" src="/file/mainimg/logo.png" alt="headerlogo" />
           </a>
         </div>
-        <div>
+        <div id="courseIcon">
           <a href="/course">
-            <img
-              class="headerMenu"
-              src="../file/mainimg/logo-shopicon.png"
-              alt="rightMenu"
-            />
+            <i class="fa-solid fa-cart-plus"></i>
           </a>
         </div>
       </div>
     </header>
+
+    <!-- 뒤로가기 버튼 -->
+    <script>
+    document.getElementById("backButton").addEventListener("click", function() {
+    window.history.back();
+    });
+
+    // 홈 화면에서 뒤로가기 버튼 안보이기
+    var backButton = document.getElementById("backButton");
+
+    // 현재 페이지의 루트 주소를 가져옴
+    var rootURL = window.location.origin;
+
+    // 뒤로가기 버튼을 홈 화면에서만 감춤
+    if (window.location.href === rootURL + "/") {
+      backButton.style.display = "none";
+    } else {
+      backButton.addEventListener("click", function() {
+        window.history.back();
+      });
+    }
+    </script>
   </body>
 </html>
