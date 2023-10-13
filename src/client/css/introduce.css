@@ -179,10 +179,17 @@ input[name="tab_item"] {
   font-size: 11px;
   text-align: center;
   line-height: normal;
-  padding: 5px 0;
+  padding: 5px 2px;
   border-radius: 5px;
   background: #efe3eb;
   cursor: pointer;
+}
+.introduce-link-wrap div .btn-style{
+  width: 100%;
+  background-color: transparent;
+  height: 100%;
+  border: none;
+  outline: none;
 }
 .swiper-button-next,
 .swiper-button-prev {
