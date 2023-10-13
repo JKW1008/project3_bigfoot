@@ -31,7 +31,7 @@ const deleteMarkers = () => {
 //유저 마커 그리기
 const addUserMarker = () => {
     let markerImage = "/file/user_marker.png";
-    let markerSize = new kakao.maps.Size(36);
+    let markerSize = new kakao.maps.Size(24);
     const image = new kakao.maps.MarkerImage(markerImage, markerSize);
     let marker = new kakao.maps.Marker({
         map : map,
