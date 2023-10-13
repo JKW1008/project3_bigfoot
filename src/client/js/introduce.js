@@ -15,6 +15,7 @@ slideUpButton.addEventListener("click",()=>{
   slideTarget.classList.toggle("move");
 })
 
+
 // 지도맵
 const locationMap = document.getElementById("location-map");
 let markers = [];
@@ -36,7 +37,7 @@ const configurationLocationWatch = () => {
         // console.log(position);
         isMapDrawn = true;
         drawMap(userLatitue, userLongitude);
-        addCourseMarker();
+        // addCourseMarker();
       }
       addUserMarker();
       if (clickCourseId === 0) {        
@@ -45,6 +46,10 @@ const configurationLocationWatch = () => {
     });
   }
 };
+//해당 위치로 지도를 이동한다.
+const panTo = (latitude, longitude) => {
+  map.panTo(new kakao.maps.LatLng(latitude, longitude));
+}
 configurationLocationWatch();
 const addUserMarker = () => {
   let maker = new kakao.maps.Marker({

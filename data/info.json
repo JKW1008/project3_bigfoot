@@ -11,7 +11,8 @@
       "contact":"053-803-7900",
       "website":"http://daeguartmuseum.or.kr/index.do",
       "latitude": "35.827746",
-      "longitude": "128.674444"
+      "longitude": "128.674444",
+      "qr" : "DaeguArtMuseum"
     },
     {
       "photo": "../file/introduce/art-2.png",
@@ -24,7 +25,9 @@
       "contact":"-",
       "website":"-",
       "latitude": "35.865692",
-      "longitude": "128.603343"
+      "longitude": "128.603343",
+      "qr" : "SamdeokdongGalleryAlley"
+      
     },
     {
       "photo": "../file/introduce/art-3.png",
@@ -37,7 +40,8 @@
       "contact":"-",
       "website":"http://www.dbeway.co.kr/kor/CMS/TravelPoint/viewd.do?mCode=MN176&idx=21",
       "latitude": "35.859544",
-      "longitude": "128.606515"
+      "longitude": "128.606515",
+      "qr" : "KimGwangseokStreet"
     },
     {
       "photo": "../file/introduce/art-4.png",
@@ -50,7 +54,8 @@
       "contact":"053-666-6000",
       "website":"https://www.daeguoperahouse.org",
       "latitude": "35.883487",
-      "longitude": "128.592330"
+      "longitude": "128.592330",
+      "qr" : "DaeguOperaHouse"
     },
     {
       "photo": "../file/introduce/art-5.png",
@@ -63,7 +68,8 @@
       "contact":"053-670-6114",
       "website":"https://www.dnsm.or.kr",
       "latitude": "35.686337",
-      "longitude": "128.465456"
+      "longitude": "128.465456",
+      "qr" : "DaeguNationalScienceMuseum"
     },
     {
       "photo": "../file/introduce/art-6.png",
@@ -76,7 +82,8 @@
       "contact":"053-606-6114",
       "website":"https://daeguartscenter.or.kr",
       "latitude": "35.844519",
-      "longitude": "128.559470"
+      "longitude": "128.559470",
+      "qr" : "DaeguCultureandArtsCenter"
     },
     {
       "photo": "../file/introduce/art-7.png",
@@ -89,7 +96,8 @@
       "contact":"-",
       "website":"-",
       "latitude": "35.778927",
-      "longitude": "128.541939"
+      "longitude": "128.541939",
+      "qr" : "MabijeongMuralVillage"
     },
     {
       "photo": "../file/introduce/art-8.png",
@@ -102,7 +110,8 @@
       "contact":"053-767-8991~2",
       "website":"https://dcw.daegu.go.kr/ko/page/main.do",
       "latitude": "35.846595",
-      "longitude": "128.627736"
+      "longitude": "128.627736",
+      "qr" : "DaeguChildrenWorld"
     },
     {
       "photo": "../file/introduce/art-9.png",
@@ -115,7 +124,8 @@
       "contact":"053-430-1225~9",
       "website":"https://www.daeguartfactory.kr/front",
       "latitude": "35.875545",
-      "longitude": "128.584430"
+      "longitude": "128.584430",
+      "qr" : "DaeguArtPowerPlant"
     }
   ],
   "history": [
@@ -130,7 +140,8 @@
       "contact":"053-606-6431",
       "website":"http://daeguartscenter.or.kr/dmhm/",
       "latitude": "35.871741",
-      "longitude": "128.591135"
+      "longitude": "128.591135",
+      "qr" : "DaeguModernHistoryMuseum"
     },
     {
       "photo": "../file/introduce/history-2.png",
@@ -143,7 +154,8 @@
       "contact":"053-254-2300",
       "website":"http://www.gyesancathedral.kr",
       "latitude": "35.867931",
-      "longitude": "128.587818"
+      "longitude": "128.587818",
+      "qr" : "GyesanCathedral"
     },
     {
       "photo": "../file/introduce/history-3.png",
@@ -156,7 +168,8 @@
       "contact":"053-253-2618",
       "website":"http://www.firstch.org",
       "latitude": "35.867828",
-      "longitude": "128.585998"
+      "longitude": "128.585998",
+      "qr" : "DaeguFirstChurch"
     },
     {
       "photo": "../file/introduce/history-4.png",
@@ -169,7 +182,8 @@
       "contact":"053-606-6421~6425",
       "website":"https://daeguartscenter.or.kr/hyangto",
       "latitude": "35.873062",
-      "longitude": "128.579019"
+      "longitude": "128.579019",
+      "qr" : "DaeguLocalHistoryMuseum"
     },
     {
       "photo": "../file/introduce/history-5.png",
@@ -182,7 +196,8 @@
       "contact":"-",
       "website":"http://www.grandculture.net/daegu/toc/GC40000264?search=A2/4#self",
       "latitude": "35.86758386795291",
-      "longitude": "128.58598735582015"
+      "longitude": "128.58598735582015",
+      "qr" : "LonglivetheMarch1stMovement"
     },
     {
       "photo": "../file/introduce/history-6.png",
@@ -195,7 +210,8 @@
       "contact":"-",
       "website":"http://www.grandculture.net/daegu/toc/GC40008143",
       "latitude": "35.867138",
-      "longitude": "128.585194"
+      "longitude": "128.585194",
+      "qr" : "gardenofgrace"
     },
     {
       "photo": "../file/introduce/history-7.png",
@@ -208,7 +224,8 @@
       "contact":"053-666-4930~1",
       "website":"https://www.suseong.kr/tour/index.do?menu_id=00030715",
       "latitude": "35.857955",
-      "longitude": "128.651628"
+      "longitude": "128.651628",
+      "qr" : "MomyeongjaeKoreanTraditionalCultureExperienceCenter"
     },
     {
       "photo": "../file/introduce/history-8.png",
@@ -221,7 +238,8 @@
       "contact":"-",
       "website":"http://www.grandculture.net/daegu/donggu/toc/GC40000134#self",
       "latitude": "35.866693",
-      "longitude": "128.585395"
+      "longitude": "128.585395",
+      "qr" : "CheongnaHill"
     },
     {
       "photo": "../file/introduce/history-9.png",
@@ -234,7 +252,8 @@
       "contact":"053-219-4555",
       "website":"http://www.hyangchon.or.kr",
       "latitude": "35.873359",
-      "longitude": "128.594222"
+      "longitude": "128.594222",
+      "qr" : "HyangchonCulturalCenter"
     }
   ],
   "healing": [
@@ -249,7 +268,8 @@
       "contact":"053-761-7400/7401",
       "website":"http://daeguforest.com/",
       "latitude": "35.792929",
-      "longitude": "128.626411"
+      "longitude": "128.626411",
+      "qr" : "EcoThemeParkDaeguForest"
     },
     {
       "photo": "../file/introduce/healing-2.png",
@@ -262,7 +282,8 @@
       "contact":"-",
       "website":"https://www.suseong.kr/tour/index.do?menu_id=00000993",
       "latitude": "35.827433",
-      "longitude": "128.617615"
+      "longitude": "128.617615",
+      "qr" : "SuseongmotLake"
     },
     {
       "photo": "../file/introduce/healing-3.png",
@@ -275,7 +296,8 @@
       "contact":"-",
       "website":"http://www.grandculture.net/daegu/toc/GC40000105",
       "latitude": "35.900943",
-      "longitude": "128.560179"
+      "longitude": "128.560179",
+      "qr" : "load"
     },
     {
       "photo": "../file/introduce/healing-4.png",
@@ -288,7 +310,8 @@
       "contact":"",
       "website":"",
       "latitude": "35.835024",
-      "longitude": "128.606532"
+      "longitude": "128.606532",
+      "qr" : "IseoPark"
     },
     {
       "photo": "../file/introduce/healing-5.png",
@@ -301,7 +324,8 @@
       "contact":"",
       "website":"http://www.grandculture.net/daegu/donggu/toc/GC40020079",
       "latitude": "35.882540",
-      "longitude": "128.650857"
+      "longitude": "128.650857",
+      "qr" : "DongchonAmusementPark"
     },
     {
       "photo": "../file/introduce/healing-6.png",
@@ -314,7 +338,8 @@
       "contact":"053-982-8803",
       "website":"http://daegudonggu.grandculture.net/daegudonggu/toc/GC40200088",
       "latitude": "35.990849",
-      "longitude": "128.694911"
+      "longitude": "128.694911",
+      "qr" : "PalgongsanCableCa"
     },
     {
       "photo": "../file/introduce/healing-7.png",
@@ -327,7 +352,8 @@
       "contact":"",
       "website":"http://www.grandculture.net/daegu/donggu/toc/GC40020024",
       "latitude": "35.864902",
-      "longitude": "128.747130"
+      "longitude": "128.747130",
+      "qr" : "AnsimWetland"
     },
     {
       "photo": "../file/introduce/healing-8.png",
@@ -340,7 +366,8 @@
       "contact":"053-667-2856",
       "website":"https://www.korearank.com/tour/tour_detail.php?uid=49924",
       "latitude": "35.857895",
-      "longitude": "128.514823"
+      "longitude": "128.514823",
+      "qr" : "DaeguIgokRosePark"
     },
     {
 
@@ -354,7 +381,8 @@
       "contact":"053-659-4465",
       "website":"http://www.dssiseol.or.kr/pages/sisul/page.html?mc=1058",
       "latitude": "35.811086",
-      "longitude": "128.477094"
+      "longitude": "128.477094",
+      "qr" : "Samunjin"
     }
   ],
   "shopping": [
@@ -369,7 +397,8 @@
       "contact":"053-620-0001",
       "website":"https://eworld.kr/",
       "latitude": "35.853547",
-      "longitude": "128.563212"
+      "longitude": "128.563212",
+      "qr" : "EWorld"
     },
     {
       "photo": "../file/introduce/shopping-2.png",
@@ -382,7 +411,8 @@
       "contact":"053-245-2233",
       "website":"https://www.ehyundai.com/newPortal/DP/DP000000_V.do?branchCd=B00146000",
       "latitude": "35.866647",
-      "longitude": "128.590635"
+      "longitude": "128.590635",
+      "qr" : "DaeguHyundaiDepartmentStore"
     },
     {
       "photo": "../file/introduce/shopping-3.png",
@@ -395,7 +425,8 @@
       "contact":"053-585-0916~7",
       "website":"http://www.riverguide.go.kr/kor/page.do?menuIdx=381",
       "latitude": "35.841432",
-      "longitude": "128.464426"
+      "longitude": "128.464426",
+      "qr" : "GangjeongGoryeongboDiark"
     },
     {
       "photo": "../file/introduce/shopping-4.png",
@@ -408,7 +439,8 @@
       "contact":"053-803-5450",
       "website":"http://www.apsan-cablecar.co.kr/",
       "latitude": "35.824777",
-      "longitude": "128.579458"
+      "longitude": "128.579458",
+      "qr" : "ApsanObservatory"
     },
     {
       "photo": "../file/introduce/shopping-5.png",
@@ -421,7 +453,8 @@
       "contact":"1588-1234",
       "website":"https://www.shinsegae.com/index.do",
       "latitude": "35.877920",
-      "longitude": "128.629161"
+      "longitude": "128.629161",
+      "qr" : "DaeguShinsegaeDepartmentStore"
     },
     {
       "photo": "../file/introduce/shopping-6.png",
@@ -434,7 +467,8 @@
       "contact":"05-780-3300",
       "website":"https://www.samsunglions.com/index.asp",
       "latitude": "35.841266",
-      "longitude": "128.681545"
+      "longitude": "128.681545",
+      "qr" : "SamsungLionsPark"
     },
     {
       "photo": "../file/introduce/shopping-7.png",
@@ -447,7 +481,8 @@
       "contact":"053-247-8899",
       "website":"https://daeguaqua.com/",
       "latitude": "35.877932",
-      "longitude": "128.628909"
+      "longitude": "128.628909",
+      "qr" : "DaeguAquarium"
     },
     {
       "photo": "../file/introduce/shopping-8.png",
@@ -457,10 +492,11 @@
       "description2":"",
       "address":"대구광역시 중구 대신동 큰장로26길",
       "operating_hours":"",
-      "contact":"",
-      "website":"",
+      "contact":"053-256-6341",
+      "website":"http://seomun.eneeds.gethompy.com/",
       "latitude": "35.868670",
-      "longitude": "128.580876"
+      "longitude": "128.580876",
+      "qr" : "SeomunMarket"
     },
     {
       "photo": "../file/introduce/shopping-9.png",
@@ -470,10 +506,11 @@
       "description2":"",
       "address":" 대구광역시 수성구 대흥동 504번지 ",
       "operating_hours":"",
-      "contact":"",
-      "website":"",
+      "contact":"053-803-8300",
+      "website":"https://www.daegu.go.kr/cts/index.do?menu_id=00002202&servletPath=%2Fcts",
       "latitude": "35.829891",
-      "longitude": "128.689870"
+      "longitude": "128.689870",
+      "qr" : "DaeguStadium"
     }
   ]
 }
