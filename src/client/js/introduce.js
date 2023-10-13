@@ -116,3 +116,51 @@ btn_detail.forEach((box) => {
     self.location.href = "/detail?table_name=" + tableName + "&idx=" + idx;
   });
 });
+
+
+async function containCourse(tableName, idx, accessToken) {
+  try {
+    const response = await fetch('/api/introduce', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        tableName,
+        idx,
+        accessToken
+      }),
+    });
+    const result = await response.json();
+
+    if (response.status === 200) {
+      msgAlert("center", "저장 완료", "success");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } else if (response.status === 401) {
+      if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
+      else return window.location.href = "/login?error=need_login";
+    } else if (response.status === 409) {
+      msgAlert("center", "이미 방문한 코스입니다.", "error");
+    } else {
+      msgAlert("center", "서버 에러", "error");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    msgAlert("center", "서버 통신 오류", "error");
+  }
+}
+
+const btn_cotain = document.querySelectorAll(".btn_cotain");
+btn_cotain.forEach((box) => {
+  box.addEventListener("click", () => {
+    const tableName = box.dataset.tableName;
+    const idx = box.dataset.courseIdx;
+    const accessToken = localStorage.getItem("accessToken");
+
+    containCourse(tableName, idx, accessToken);
+  });
+});
