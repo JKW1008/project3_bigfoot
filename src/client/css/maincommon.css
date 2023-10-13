@@ -23,19 +23,22 @@
   height: 60px;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 0 10px;
 }
 .header-wrap #backButton {
   font-size: 30px;
+  position: absolute;
+  left: 0;
+  padding: 10px;
 }
 .header-wrap #courseIcon {
   font-size: 25px;
 }
-/* .header .headerLogo-wrap {
-  width: 45%;
-} */
+.header .headerLogo-wrap {
+  width: 50%;
+}
 .header .headerMenu {
   margin-right: 20px;
 }
