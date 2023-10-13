@@ -30,13 +30,18 @@ const deleteMarkers = () => {
 
 //유저 마커 그리기
 const addUserMarker = () => {
+    let markerImage = "/file/user_marker.png";
+    let markerSize = new kakao.maps.Size(24);
+    const image = new kakao.maps.MarkerImage(markerImage, markerSize);
     let marker = new kakao.maps.Marker({
         map : map,
         position : new kakao.maps.LatLng(userLatitude, userLongitude),
+        image: image,
     });
     //배열 만들어주기 -> 그려진 마커를 지우기 위해서 
     markers.push(marker);
 }
+
 
 //해당 위치로 지도를 이동한다.
 const panTo = (latitude, longitude) => {
@@ -50,7 +55,7 @@ const addCourseMarker = (course) => {
     let markerSize = new kakao.maps.Size(24,35);
 
     if(course.users_course_id){
-        markerImage = "/file/map_complete.jpg";
+        markerImage = "/file/map_complete.png";
         markerSize = new kakao.maps.Size(40,50);
     }
 
@@ -92,7 +97,6 @@ const clickCourseList =(e, courseId) => {
         }
         panTo(courseLetitude, courseLongitude);
         clickCourseId = courseId;
-
     }
 }
 
@@ -134,11 +138,11 @@ const makeNavigationHtml = () => {
         if (courseListInfo[i].users_course_id){
             html += `<div class="mark-wrap"><img src="/file/complete.png"/></div>`
         }
-        html += `   <p>${courseListInfo[i].course_name}</p>`
+        html += `<div><p><span></span>${courseListInfo[i].course_name}</p><span onclick="deleteMyCourseList()">-</span></div>`
         html += `</li>`
     }
 
-    html += `<li id="myPosition" class="course on" onclick="clickCourseList(event,0)">나의위치</li>`
+    html += `<li id="myPosition" class="course mylocation on" onclick="clickCourseList(event,0)">나의위치</li>`
 
     courseWrap.innerHTML = html;
 }

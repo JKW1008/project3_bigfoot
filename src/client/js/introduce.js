@@ -15,7 +15,6 @@ slideUpButton.addEventListener("click",()=>{
   slideTarget.classList.toggle("move");
 })
 
-
 // 지도맵
 const locationMap = document.getElementById("location-map");
 let markers = [];
@@ -28,7 +27,8 @@ let clickCourseId = 0;
 const configurationLocationWatch = () => {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition((position) => {
-      // deleteMarker();
+      //지도상 위에 있는 마커 지우기
+      deleteMarkers();      
       // console.log(position);
       //내 위치 확인후 카카오맵에 중앙으로
       userLatitue = position.coords.latitude;
@@ -37,7 +37,7 @@ const configurationLocationWatch = () => {
         // console.log(position);
         isMapDrawn = true;
         drawMap(userLatitue, userLongitude);
-        // addCourseMarker();
+        addCourseMarker();
       }
       addUserMarker();
       if (clickCourseId === 0) {        
@@ -46,18 +46,31 @@ const configurationLocationWatch = () => {
     });
   }
 };
-//해당 위치로 지도를 이동한다.
-const panTo = (latitude, longitude) => {
-  map.panTo(new kakao.maps.LatLng(latitude, longitude));
+//마커를 초기화 하는 함수(유저 마커가 새로생일때 기존꺼를 지워버리기 위한 용도)
+const deleteMarkers = () => {
+  for (let i = 0 ; i < markers.length; i++){
+      markers[i].setMap(null);
+  }
+  markers = [];
 }
 configurationLocationWatch();
 const addUserMarker = () => {
-  let maker = new kakao.maps.Marker({
-    map: map,
-    position: new kakao.maps.LatLng(userLatitue, userLongitude),
-  });
-  // maker.setMap(map);
-  markers.push(maker);
+  // let maker = new kakao.maps.Marker({
+  //   map: map,
+  //   position: new kakao.maps.LatLng(userLatitue, userLongitude),
+  // });
+  // // maker.setMap(map);
+  // markers.push(maker);
+  let markerImage = "/file/user_marker.png";
+    let markerSize = new kakao.maps.Size(24);
+    const image = new kakao.maps.MarkerImage(markerImage, markerSize);
+    let marker = new kakao.maps.Marker({
+        map : map,
+        position : new kakao.maps.LatLng(userLatitue, userLongitude),
+        image: image,
+    });
+    //배열 만들어주기 -> 그려진 마커를 지우기 위해서 
+    markers.push(marker);
 };
 const drawMap = (latitue, longitude) => {
   const options = {

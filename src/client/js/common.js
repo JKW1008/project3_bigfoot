@@ -49,3 +49,37 @@ const msgAlert = (position, msg, type) => {
   });
   Toast.fire({ title: msg, icon: type });
 }
+
+const msgAlert2 = (position, msg, type) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: position,
+    showConfirmButton: false,
+    timer: 2000,
+  });
+  Toast.fire({ 
+    title: msg, 
+    icon: type,
+    imageUrl: '/file/qr-success-msgAlert2.png',
+    imageWidth: 250,
+    imageHeight: 200,
+    imageAlt: 'Custom image',
+   });
+};
+
+const msgAlert3 = (position, msg, type) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: position,
+    showConfirmButton: false,
+    timer: 20000,
+  });
+  Toast.fire({ 
+    title: msg, 
+    icon: type,
+    imageUrl: '/file/qr-success-msgAlert3.png',
+    imageWidth: 300,
+    imageHeight: 200,
+    imageAlt: 'Custom image',
+   });
+};

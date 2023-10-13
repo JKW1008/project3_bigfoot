@@ -25,7 +25,7 @@ const courseCheckFetch = async (qrCode) => {
   }
 
   try {
-    const response = await fetch('/api/course', {
+    const response = await fetch('/api/courses', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const courseCheckFetch = async (qrCode) => {
       if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
       else return window.location.href = "/login?error=need_login";
     } else if (response.status === 409) {  
-      msgAlert("center", "이미 방문한 코스입니다.", "error");
+      msgAlert3("center");
     } else {
       msgAlert("center", "서버 에러", "error");
     }
@@ -143,7 +143,7 @@ function startScan() {
           code.location.topLeftCorner,
           "#FF0000"
         );
-        
+        msgAlert2("center");
         // QR 코드에 저장된 데이터를 사용하여 어떤 작업을 수행합니다. 
         return courseCheckFetch(code.data);
       }
