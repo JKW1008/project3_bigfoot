@@ -36,19 +36,19 @@
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                   <!-- 반복되는부분 -->
-                  <% for (let i = 0; i < data.art.length; i++) { %> 
-                    <% const latitude = data.art[i].latitude %> 
-                    <% const longitude = data.art[i].longitude %>
+                  <% for (let i = 0; i < data.arts_and_science.length; i++) { %> 
+                    <% const latitude = data.arts_and_science[i].latitude %> 
+                    <% const longitude = data.arts_and_science[i].longitude %>
                   <div class="swiper-slide">
-                    <img src="<%= data.art[i].photo %>" alt="" />
+                    <img src="https://port-9000-bigfootadmin-4fju66f2clmzth6gt.sel5.cloudtype.app/data/course/<%= data.arts_and_science[i].photo %>" alt="" />
                     <div class="introduce-swiper-text-wrap">
-                      <h2><%= data.art[i].name %></h2>
+                      <h2><%= data.arts_and_science[i].name %></h2>
                       <div class="introduce-link-wrap">
                         <div>내 코스 담기</div>
                         <!-- onclick 이벤트 핸들러에서 함수 호출 -->
                         <div onclick="tripLocation('<%= latitude %>', '<%= longitude %>')">위치 확인하기</div>
                         <div>
-                          <a href="/detail">자세히보기</a>
+                          <button class="btn_detail" data-idx="<%= data.arts_and_science[i].idx %>" data-table-name="<%= data.arts_and_science[i].table_name %>">자세히보기</button>
                         </div>
                       </div>
                     </div>
@@ -71,13 +71,13 @@
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                   <!-- 반복되는부분 -->
-                  <% for (let i = 0; i < data.history.length; i++) { %> 
-                    <% const latitude = data.history[i].latitude %>
-                     <% const longitude = data.history[i].longitude %>
+                  <% for (let i = 0; i < data.history_and_culture.length; i++) { %> 
+                    <% const latitude = data.history_and_culture[i].latitude %>
+                     <% const longitude = data.history_and_culture[i].longitude %>
                   <div class="swiper-slide">
-                    <img src="<%= data.history[i].photo %>" alt="" />
+                    <img src="https://port-9000-bigfootadmin-4fju66f2clmzth6gt.sel5.cloudtype.app/data/course/<%= data.history_and_culture[i].photo %>" alt="" />
                     <div class="introduce-swiper-text-wrap">
-                      <h2><%= data.history[i].name %></h2>
+                      <h2><%= data.history_and_culture[i].name %></h2>
                       <div class="introduce-link-wrap">
                         <div>내 코스 담기</div>
                         <!-- onclick 이벤트 핸들러에서 함수 호출 -->
@@ -106,13 +106,13 @@
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                   <!-- 반복되는부분 -->
-                  <% for (let i = 0; i < data.healing.length; i++) { %>
-                     <% const latitude = data.healing[i].latitude %>
-                      <% const longitude = data.healing[i].longitude %>
+                  <% for (let i = 0; i < data.nature_and_relaxation.length; i++) { %>
+                     <% const latitude = data.nature_and_relaxation[i].latitude %>
+                      <% const longitude = data.nature_and_relaxation[i].longitude %>
                   <div class="swiper-slide">
-                    <img src="<%= data.healing[i].photo %>"  alt="" />
+                    <img src="https://port-9000-bigfootadmin-4fju66f2clmzth6gt.sel5.cloudtype.app/data/course/<%= data.nature_and_relaxation[i].photo %>" alt="" />
                     <div class="introduce-swiper-text-wrap">
-                      <h2><%= data.healing[i].name %></h2>
+                      <h2><%= data.nature_and_relaxation[i].name %></h2>
                       <div class="introduce-link-wrap">
                         <div>내 코스 담기</div>
                         <!-- onclick 이벤트 핸들러에서 함수 호출 -->
@@ -141,13 +141,13 @@
               <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                   <!-- 반복되는부분 -->
-                  <% for (let i = 0; i < data.shopping.length; i++) { %>
-                     <% const latitude = data.shopping[i].latitude %> 
-                     <% const longitude = data.shopping[i].longitude %>
+                  <% for (let i = 0; i < data.tourism_and_shopping.length; i++) { %>
+                     <% const latitude = data.tourism_and_shopping[i].latitude %> 
+                     <% const longitude = data.tourism_and_shopping[i].longitude %>
                   <div class="swiper-slide">
-                    <img src="<%= data.shopping[i].photo %>" alt="" />
+                    <img src="https://port-9000-bigfootadmin-4fju66f2clmzth6gt.sel5.cloudtype.app/data/course/<%= data.tourism_and_shopping[i].photo %>" alt="" />
                     <div class="introduce-swiper-text-wrap">
-                      <h2><%= data.shopping[i].name %></h2>
+                      <h2><%= data.tourism_and_shopping[i].name %></h2>
   
                       <div class="introduce-link-wrap">
                         <div>내 코스 담기</div>
@@ -171,6 +171,7 @@
               <p>가족. 친구, 연인 모두와 즐길 수 있는 장소가 가득한 곳 대구로 관광오세요!</p>
             </div>
           </div>
+
         </div>
       </div>
     </div>

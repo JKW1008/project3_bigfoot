@@ -88,3 +88,13 @@ function tripLocation(latitude,longitude){
   drawMap(latitude,longitude);
   addCourseMarkers(latitude,longitude);
 }
+
+const btn_detail = document.querySelectorAll(".btn_detail");
+btn_detail.forEach((box) => {
+  box.addEventListener("click", () => {
+    const tableName = box.dataset.tableName; // 소문자로 접근
+    const idx = box.dataset.idx; // 소문자로 접근
+    // URL을 올바르게 생성하기 위해 문자열 연결 연산자를 사용해야 합니다.
+    self.location.href = "/detail?table_name=" + tableName + "&idx=" + idx;
+  });
+});

@@ -31,7 +31,6 @@ app.use(cors({
   method: "GET, POST, PUT, DELETE, PATCH",
   credentials: true,
 }));
-
 /**
  * express.json() 미들웨어를 사용하여 들어오는 요청의 JSON 본문을 파싱합니다.
  * 이를 통해 req.body로 JSON 데이터에 접근할 수 있습니다.
@@ -50,7 +49,7 @@ app.use("/file", express.static("src/client/file"));
 
 // api
 app.use("/api/auth", authRouter);
-app.use("/api/course", courseRouter);
+app.use("/api/courses", courseRouter);
 app.use("/api/introduce", introduceRouter);
 
 

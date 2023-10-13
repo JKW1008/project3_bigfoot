@@ -2,7 +2,7 @@ import Exception from "../handler/Exception.js";
 import CourseRepository from "../repository/CourseRepository.js";
 
 export const getCourseListWitUser = async (user) => {
-  return await CourseRepository.findCourseListWithUser(user.user_no);
+  return await CourseRepository.findCourseListWithUser(user.user_id);
 }
 
 export const updateCourseVisitedStatus = async ({ user, qrCode, latitude, longitude }) => {
