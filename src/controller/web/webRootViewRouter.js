@@ -21,6 +21,9 @@ webRootViewRouter.get("/tutorialCourse", (req, res) => res.render("tutorialCours
 webRootViewRouter.get("/tutorialQr", (req, res) => res.render("tutorialQr"));
 webRootViewRouter.get("/tutorialStamp", (req, res) => res.render("tutorialStamp"));
 webRootViewRouter.get("/tutorialRecommendation", (req, res) => res.render("tutorialRecommendation"));
+webRootViewRouter.get("/board", (req, res) => res.render("board"));
+webRootViewRouter.get("/boardWriting", (req, res) => res.render("boardWriting"));
+webRootViewRouter.get("/boardListDatail", (req, res) => res.render("boardListDatail"));
 
 export default webRootViewRouter;
 
