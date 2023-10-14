@@ -4,6 +4,7 @@ import courseRouter from "./controller/courseRouter.js";
 import webRootViewRouter from "./controller/web/webRootViewRouter.js";
 import authRouter from "./controller/authRouter.js";
 import introduceRouter from "./controller/introduceRouter.js";
+import boardRouter from "./controller/boardRouter.js";
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.use("/file", express.static("src/client/file"));
 app.use("/api/auth", authRouter);
 app.use("/api/courses", courseRouter);
 app.use("/api/introduce", introduceRouter);
+app.use("/api/board", boardRouter);
 
 
 // web

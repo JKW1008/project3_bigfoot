@@ -34,3 +34,24 @@ export const ContainCourse = async (user_id, table_name, course_id, lat, lon) =>
     }
   }
   
+export const allMyCourse = async (id) => {
+    try {
+        const allmycourse = IntroduceRepository.allMyCourse(id);
+        return allmycourse;
+    } catch (error) {
+        console.error("Error in allMyCourse:", error);
+        throw error;
+    }
+}
+
+export const delet_myCourse = async (idx) => {
+    try {
+        let result = await IntroduceRepository.deleteMyCourse(idx);
+        return result;
+    } catch (error) {
+        console.error('Error in deleteMyCourse', error);
+        throw error;
+    }
+}
+
+

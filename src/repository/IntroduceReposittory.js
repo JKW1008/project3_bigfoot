@@ -68,4 +68,30 @@ export default class IntroduceRepository{
           throw error;
         }
       }
+
+      static async allMyCourse(id) {
+        const QUERY = `SELECT * FROM containcourse WHERE user_id = ?`;
+        try {
+          return await db.execute(QUERY, [id]).then((result) => result[0]);
+        } catch (error) {
+          console.error('Error in Get', error);
+          throw error;
+        }
+      }
+
+      static async deleteMyCourse(idx) {
+        const QUERY = `DELETE FROM containcourse WHERE idx = ?`;
+        try {
+            const [result] = await db.execute(QUERY, [idx]);
+            if (result.affectedRows > 0) {
+                return true; // 삭제 성공
+            } else {
+                return false; // 삭제 실패
+            }
+        } catch (error) {
+            console.error('Error in deleteMyCourse', error);
+            throw error;
+        }
+    }
+    
 }

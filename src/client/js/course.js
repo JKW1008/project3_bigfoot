@@ -130,7 +130,7 @@ const configurationLocationWatch = () => {
 
 const makeNavigationHtml = () => {
     const courseWrap = document.getElementById("course-wrap")
-    console.log(courseWrap);
+    // console.log(courseWrap);
     let html = "";
    
     for (let i = 0; i < courseListInfo.length; i++){
@@ -152,10 +152,11 @@ const afterGetCourseList = () => {
     configurationLocationWatch();
 }
 
+
 // 백엔드 서버로 코스정보 요청
 const getCourseListFetch = async () => {
     const response = await fetch("/api/courses")
-    console.log(response);
+    // console.log(response);
 
     const result = await response.json();
     courseListInfo = result;

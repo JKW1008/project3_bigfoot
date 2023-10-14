@@ -34,6 +34,35 @@ export const isAuth = async (req, res, next) => {
   );
 };
 
+export const isPageAuth = async (req, res, next) => {
+  // 주소 : ?accessToken=token_value
+  const accessToken = req.query.accessToken;
+  if(!accessToken) res.redirect("/login");
+
+  jwt.verify(
+    accessToken,
+    process.env.SECRET_KEY,
+    async (error, decoded) => {
+      if (error) {
+        if (error instanceof jwt.TokenExpiredError) {
+          return res.status(Exception.AUTH_EXPIRED.statusCode).json(Exception.AUTH_EXPIRED);
+        } else {
+          return res.status(Exception.AUTH_ERROR.statusCode).json(Exception.AUTH_ERROR);
+        }
+      }
+      console.log("==========")
+      console.log(decoded)
+      const id = decoded.id; // 이ㅇ메일 추출
+      const user = await UserRepository.findById(id); // 이메일로 사용자 조회
+      if (!user) {
+        return res.redirect("/loign?error=..");
+      }
+      req.user = user; // 사용자 정보 저장
+      next();
+    }
+  );
+};
+
 
 export const handleKakaoLogin = async (accessToken, refreshToken, profile, done) => {
   try {

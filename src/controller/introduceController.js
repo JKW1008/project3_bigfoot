@@ -1,4 +1,4 @@
-import { ContainCourse, getArtsandScience } from "../service/introduceService"
+import { ContainCourse, allMyCourse, delet_myCourse, getArtsandScience } from "../service/introduceService"
 import ResponseBody from "../handler/ResponseBody.js";
 import Exception from "../handler/Exception";
 
@@ -35,3 +35,34 @@ export const containCourse = async (req, res) => {
   }
 }
 
+export const getallMyCourse = async (req, res) => {
+  try{
+    const user = req.user.user_id;
+    const allmycourse = await allMyCourse(user);
+    res.status(200).json({
+      success: true,
+      data: allmycourse, // allmycourse에 들어 있는 데이터를 프론트로 전달
+    });
+  } catch (e) {
+    console.error(e);
+    if (e.statusCode) return res.status(e.statusCode).json({ statusCode: e.statusCode, statusText: e.statusText, message: e.message, data: e.data = "" });
+    else return res.status(500).json(Exception.INTERNAL_SERVER_ERROR);
+  }
+}
+
+export const deleteMycourse = async (req, res) => {
+  try {
+    const idx = req.body.idx;
+    const dmycourse = await delet_myCourse(idx);
+    
+    if (dmycourse === true) {
+      return res.status(200).json(new ResponseBody(200, "success", "코스 삭제 성공"));
+    } else if (dmycourse === false) {
+      return res.status(400).json(new ResponseBody(400, "failed", "존재하지 않습니다."));
+    }
+  } catch (e) {
+    console.error(e);
+    if (e.statusCode) return res.status(e.statusCode).json({ statusCode: e.statusCode, statusText: e.statusText, message: e.message, data: e.data = "" });
+    else return res.status(500).json(Exception.INTERNAL_SERVER_ERROR);
+  }
+}
