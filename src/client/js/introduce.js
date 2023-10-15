@@ -118,7 +118,7 @@ btn_detail.forEach((box) => {
 });
 
 
-async function containCourse(tableName, idx, lat, lon, accessToken) {
+async function containCourse(tableName, idx, name, lat, lon, accessToken) {
   try {
     const response = await fetch('/api/introduce', {
       method: 'POST',
@@ -130,6 +130,7 @@ async function containCourse(tableName, idx, lat, lon, accessToken) {
       body: JSON.stringify({
         tableName,
         idx,
+        name,
         lat,
         lon,
         accessToken
@@ -163,6 +164,7 @@ btn_cotain.forEach((box) => {
   box.addEventListener("click", () => {
     const tableName = box.dataset.tableName;
     const idx = box.dataset.courseIdx;
+    const name = box.dataset.courseName;
     const lat = box.dataset.lat;
     const lon = box.dataset.lon;
     const accessToken = localStorage.getItem("accessToken");
@@ -171,6 +173,6 @@ btn_cotain.forEach((box) => {
     if(!accessToken){
       window.location.href = "/login?error=need_login";
     }
-    containCourse(tableName, idx, lat, lon, accessToken);
+    containCourse(tableName, idx, name, lat, lon, accessToken);
   });
 });
