@@ -88,8 +88,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   let isMapDrawn = false;
   let userLatitude;
   let userLongitude;
-  let clickCourseId = 0 ;
-
 
   // 맵 그리기
   const drawMap = (latitue, longitude) => {
@@ -129,15 +127,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         userLatitude = position.coords.latitude;
         userLongitude = position.coords.longitude;
         if (!isMapDrawn) {
-          // console.log(position);
+          //   console.log(position);
           isMapDrawn = true;
           drawMap(userLatitude, userLongitude);
           allCoutseMarker();
         }
         addUserMarker();
-        // if (clickCourseId === 0) {
-        //   panTo(userLatitude, userLongitude);
-        // }
       });
     }
   };
@@ -175,16 +170,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 코스 리스트 html 표시
   const makeList = () => {
     const courseWrap = document.getElementById("course-wrap");
-
     // console.log(courseWrap);
     let html = "";
-    html += `<li id="myPosition" class="course mylocation on" onclick="clickCourseList(event,0)">나의위치</li>`;
+    html += `<li id="myPosition" class="course mylocation on" >나의위치</li>`;
     for (let i = 0; i < data.length; i++) {
-      html += `<li class="course" onclick="clickCourseList(event, ${data[i].course_id})">`;
+      html += `<li class="course">`;
       if (data[i].users_course_id) {
         html += `<div class="mark-wrap"><img src="/file/complete.png"/></div>`;
       }
-      html += `<div><p><span id="targetColore" >${i + 1}</span>${data[i].course_name}</p><span onclick="deleteMyCourseList()">-</span></div>`;
+      html += `<div  data-lat="${data[i].latitude}" data-lon="${data[i].longitude}"><p><span class="targetColore" data-table="${data[i].table_name}" >${
+        i + 1
+      }</span>${data[i].course_name}</p><span onclick="deleteMyCourseList()">-</span></div>`;
       html += `</li>`;
       if (data[i].table_name === "arts_and_science") {
       }
@@ -192,29 +188,74 @@ document.addEventListener("DOMContentLoaded", async () => {
     courseWrap.innerHTML = html;
   };
   makeList();
-  const clickCourseList = (e, courseId) => {
-    if (clickCourseId !== courseId) {
+
+  // 클릭시  지도 이동
+  let courseList = document.querySelectorAll(".course > div");
+  // console.log(courseList);
+  courseList.forEach((box) => {
+    box.addEventListener("click", () => {
+      const lat = box.dataset.lat;
+      const lon = box.dataset.lon;
+
       const courseWrap = document.querySelectorAll(".course");
       for (let i = 0; i < courseWrap.length; i++) {
         courseWrap[i].classList.remove("on");
       }
-      e.currentTarget.classList.add("on");
+      box.parentElement.classList.add("on");
+      // console.log(lat,lon);
+      panTo(lat, lon);
+    });
+  });
 
-      let courseLetitude;
-      let courseLongitude;
-
-      if (courseId === 0) {
-        courseLetitude = userLatitude;
-        courseLongitude = userLongitude;
-      } else {
-        let matchedCourse = courseListInfo.find((course) => course.course_id === courseId);
-        courseLetitude = matchedCourse.course_latitude;
-        courseLongitude = matchedCourse.course_longitude;
-      }
-      panTo(courseLetitude, courseLongitude);
-      clickCourseId = courseId;
+  //   내위치로 이동하기 함수
+  let mylocation = document.querySelector(".mylocation");
+  mylocation.addEventListener("click", () => {
+    const courseWrap = document.querySelectorAll(".course");
+    for (let i = 0; i < courseWrap.length; i++) {
+      courseWrap[i].classList.remove("on");
     }
-  };
-//   clickCourseList();
-});
+    mylocation.classList.add("on");
+    // console.log("1");
+    navigator.geolocation.watchPosition((position) => {
+      // console.log(position);
+      userLatitude = position.coords.latitude;
+      userLongitude = position.coords.longitude;
+    });
+    // console.log(userLatitude,userLongitude);
+    panTo(userLatitude, userLongitude);
+  });
 
+//   카테고리별 번호 색상 변경
+const setColor = () =>{
+    let targetColore = document.querySelectorAll(".targetColore");
+    // console.log(targetColore[0].dataset.table);
+    targetColore.forEach((box)=>{
+        let Kategorie;
+        Kategorie = box.dataset.table
+        console.log( box.dataset.table);
+        if(Kategorie === "arts_and_science"){
+            for (let i = 0; i < targetColore.length; i++) {
+                targetColore[i].classList.remove("artYellow");
+            }
+            box.classList.add("artYellow");
+        }else if(Kategorie === "history_and_culture"){
+            for (let i = 0; i < targetColore.length; i++) {
+                targetColore[i].classList.remove("historyPink");
+            }
+            box.classList.add("historyPink");
+        }else if(Kategorie === "nature_and_relaxation"){
+            for (let i = 0; i < targetColore.length; i++) {
+                targetColore[i].classList.remove("natureGreen");
+            }
+            box.classList.add("natureGreen");
+        }else {
+            
+            for (let i = 0; i < targetColore.length; i++) {
+                targetColore[i].classList.remove("tourismPink");
+            }
+            box.classList.add("tourismPink");
+        }
+    })
+}
+setColor();
+});
