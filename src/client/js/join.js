@@ -1,15 +1,32 @@
+const accessToken = localStorage.getItem("accessToken");
+
+if (accessToken) {
+  window.location.href = "/";
+}
+
 const joinBtn = document.getElementById("joinBtn");
 const userIdInput = document.getElementById("userId");
 const userPasswordInput = document.getElementById("userPassword");
+const f_password2 = document.querySelector("#f_password2");
 const userNameInput = document.getElementById("userName");
+
+
+
 
 const joinFetch = async () => {
   const userId = userIdInput.value;
   const userPassword = userPasswordInput.value;
+  const checkPassword = f_password2.value;
   const userName = userNameInput.value;
 
   if(!userId || !userPassword || !userName) {
     return msgAlert("bottom", "모든 필드를 채워주세요.", "error");
+  }
+
+  if (userPassword != checkPassword) {
+    userPasswordInput.value == "";
+    f_password2.value == "";
+    return msgAlert("center", "비밀번호가 일치하지 않습니다.", "error");
   }
 
   try {

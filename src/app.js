@@ -47,6 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/css", express.static("src/client/css"));
 app.use("/js", express.static("src/client/js"));
 app.use("/file", express.static("src/client/file"));
+app.use("/data", express.static("data"));
 
 // api
 app.use("/api/auth", authRouter);

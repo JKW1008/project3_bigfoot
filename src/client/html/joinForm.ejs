@@ -1,8 +1,11 @@
 <%- include('common/header.ejs') %>
   <div class="full-container empty-background">
     <div class="join-form">
+      
       <input type="text" id="userId" placeholder="아이디" required>
-      <input type="password" id="userPassword" placeholder="비밀번호" required>
+      <button id="btn_id_check" type="button">아이디 중복확인</button>
+      <input type="password" id="userPassword" placeholder="비밀번호" required> 
+      <input type="password" id="f_password2"  placeholder="비밀번호 확인" required>
       <input type="text" id="userName" placeholder="이름" required>
       
       <div class="button-wrap">

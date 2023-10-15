@@ -1,6 +1,6 @@
 import Exception from "../handler/Exception.js";
 import ResponseBody from "../handler/ResponseBody.js";
-import { userJoinService, userLoginService } from "../service/userService.js";
+import { idchk, userJoinService, userLoginService } from "../service/userService.js";
 
 export const joinUser = async (req, res) => {
   const { userId, userPassword, userName } = req.body;
@@ -35,4 +35,18 @@ export const authMe = async (req, res) => {
   return res.status(200).json(new ResponseBody(200, "success", "인증 성공", { name: user.user_name, user_image : user.user_image, user_provider : user.user_provider }));
 }
 
+export const id_chk = async (req, res) => {
+  try {
+    const user = req.body.userId;
+    const chk = idchk(user);
+
+    if (chk === true ) {
+      return res.status(200).json(new ResponseBody(200, "success", "중복되지 않은 아이디"));
+    } else if (result === "User already") {
+      return res.status(400).json(new ResponseBody(400, "failed", "중복된 아이디 입니다."));
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
 

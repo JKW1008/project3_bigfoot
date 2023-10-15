@@ -7,59 +7,22 @@
     </div>
     <div class="board-wrap">
         <div class="board-top">
-            <p class="board-sum">총<span>32</span>개의 게시물</p>
+            <p class="board-sum">총<span><%= data.length %></span>개의 게시물</p>
             <div class="board-writing-btn" onclick="location.href='boardWriting'">글쓰기</div>
         </div>
         <div class="board-conctent">
             <span>번호</span>
             <span>제목</span>
         </div>
+        <% for (let i = 0; i < data.length; i++ ) { %>
         <div class="board-list">
             <!-- 후기 넘버 -->
-            <span class="board-list-num">32</span>
+            <span class="board-list-num"><%= data[i].idx %></span>
             <!-- 후기 제목 -->
-            <a onclick="location.href='boardListDatail'">
-                <span>수성못에 갔어요!</span>
-            </a>
+            <span class="boardDetail" data-idx="<%= data[i].idx %>"><%= data[i].subject %></span>
         </div>
-        <div class="board-list">
-            <span class="board-list-num">31</span>
-            <span>9번째 스탬프 장소 강추!</span>
-        </div>
-        <div class="board-list">
-            <span class="board-list-num">30</span>
-            <span>이월드 부메랑 엄청 무서워요 ㅠㅠ</span>
-        </div>
-        <div class="board-list">
-            <span class="board-list-num">29</span>
-            <span>대구숲에 갔는데 부모님이랑 오기 좋아요</span>
-        </div>
-        <div class="board-list">
-            <span class="board-list-num">28</span>
-            <span>대구 근대 역사관 아이들이 역사에 흥미 가지기 좋아요</span>
-        </div>
-         <!--<div class="board-list">
-            <span>27</span>
-            <span>김광석 거리에서 먹은 음식들</span>
-        </div>
-        <div class="board-list">
-            <span>26</span>
-            <span>현대 백화점에서 flex~</span>
-        </div>
-        <div class="board-list">
-            <span>25</span>
-            <span>동촌 유원지에서 산책</span>
-        </div>
-        <div class="board-list">
-            <span>24</span>
-            <span>너무 예뻤던 계산 성당</span>
-        </div>
-        <div class="board-list">
-            <span>23</span>
-            <span>잊지 못할 대구 미술관 전시</span>
-        </div> -->
+        <% } %>
     </div>
 </div>
-
-
+<script src="/js/board.js"></script>
 <%- include('common/footer.ejs') %>
