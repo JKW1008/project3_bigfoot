@@ -2,26 +2,12 @@
 <div class="container">
    <div class="boardListDatail-wrapper">
        <div class="boardListDatail-title">
-        <p>수성못에 갔어요!</p>
+        <p><%= data.subject %></p>
        </div>
        <div class="boardListDatail-item">
-        <img src="../file/board/boardListDatail.png" alt="후기에 첨부된 사진">
+        <img src="<%= data.files %>" alt="후기에 첨부된 사진">
         <p>
-            아이랑 같이 수성못에 왔어요!
-            오리배도 탈 수 있고, 산책하기도 좋더라구요
-            저는 아이들이랑 왔지만, 부모님과 오는 것도 좋을 것 같아요
-            근처에는 음식점도 많아서 산책하고 밥 먹으면서
-            시간을 보내기도 좋은 장소였어요
-        </p>
-        <p>
-            산책하는 사람도 많고 강아지도 많아서
-            강아지 좋아하는 분들도 오기 좋을 것 같아요
-            하지만 강아지를 무서워하시는 분은 조심하세요
-        </p>
-        
-        <p>
-            스탬프 투어 때문에 왔지만 너무 좋아서
-            다음에 또 방문할 예정입니다
+            <%= data.content %>
         </p>
        </div>
    </div>

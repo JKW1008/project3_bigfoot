@@ -9,3 +9,18 @@ export const board_input = async (user_id, subject, content, files) => {
         throw error;
     }
 }
+
+export const getBoardList = async () => {
+    try {
+        let boardList = await BoardRepository.boardList();
+        console.log(boardList);
+        return boardList;
+    } catch (error) {
+        console.error("Error in getBoardList:", error);
+        throw error;
+    }
+}
+
+export const getBoardDetail = async (idx) => {
+    return await BoardRepository.detailboard(idx);
+}

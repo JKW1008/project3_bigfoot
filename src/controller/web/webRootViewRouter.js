@@ -1,7 +1,8 @@
 import express from "express";
 import { getArtsandScience } from "../../service/introduceService";
 import { detailPage } from "../detailController";
-import { isAuth } from "../../middleware/auth";
+import { getBoardList } from "../../service/boardService";
+import { boarddetail } from "../boardController";
 
 const webRootViewRouter = express.Router();
 // const data = require('../../../data/info.json');
@@ -22,9 +23,12 @@ webRootViewRouter.get("/tutorialCourse", (req, res) => res.render("tutorialCours
 webRootViewRouter.get("/tutorialQr", (req, res) => res.render("tutorialQr"));
 webRootViewRouter.get("/tutorialStamp", (req, res) => res.render("tutorialStamp"));
 webRootViewRouter.get("/tutorialRecommendation", (req, res) => res.render("tutorialRecommendation"));
-webRootViewRouter.get("/board", (req, res) => res.render("board"));
+webRootViewRouter.get("/board", async (req, res) => {
+    const boardList = await getBoardList();
+    res.render("board", {data : boardList});
+}); 
 webRootViewRouter.get("/boardWriting", (req, res) => res.render("boardWriting"));
-webRootViewRouter.get("/boardListDatail", (req, res) => res.render("boardListDatail"));
+webRootViewRouter.get("/boardListDatail", boarddetail);
 
 export default webRootViewRouter;
 

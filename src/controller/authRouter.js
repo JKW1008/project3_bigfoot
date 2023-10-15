@@ -3,7 +3,7 @@ import passport from "passport";
 import jwt from "jsonwebtoken";
 import { Strategy as KakaoStrategy } from 'passport-kakao';
 import { handleKakaoLogin, isAuth } from "../middleware/auth.js";
-import { authMe, joinUser, loginUser } from "./authController.js";
+import { authMe, id_chk, joinUser, loginUser } from "./authController.js";
 
 const clientId = process.env.CLIENT_ID || "";
 const callback = "/api/auth/kakao/callback"
@@ -30,6 +30,7 @@ authRouter.get("/kakao/callback", (req, res, next) => {
   })(req, res, next);
 });
 authRouter.get("/login/callback", (req, res) => res.redirect("/"));
+authRouter.post("/idchk", id_chk);
 authRouter.post("/join", joinUser)
 authRouter.post("/login", loginUser)
 authRouter.post("/token/check", isAuth, authMe)
