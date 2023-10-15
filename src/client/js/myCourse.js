@@ -72,19 +72,24 @@ async function deltemyCourse(idx) {
   }, 1000);
 }
 
+let data = [];
 document.addEventListener("DOMContentLoaded", async () => {
   const accessToken = localStorage.getItem("accessToken");
 
   // myContain 함수를 호출하고 결과를 변수에 저장
-  const data = await myContain(accessToken);
+  const result = await myContain(accessToken);
   // 여기에서 data를 사용하거나 처리할 수 있습니다.
+  data = result;
   console.log(data);
 
   const locationMap = document.getElementById("location-map");
+
   let markers = [];
   let isMapDrawn = false;
   let userLatitude;
   let userLongitude;
+  let clickCourseId = 0 ;
+
 
   // 맵 그리기
   const drawMap = (latitue, longitude) => {
@@ -166,4 +171,50 @@ document.addEventListener("DOMContentLoaded", async () => {
   const panTo = (latitude, longitude) => {
     map.panTo(new kakao.maps.LatLng(latitude, longitude));
   };
+
+  // 코스 리스트 html 표시
+  const makeList = () => {
+    const courseWrap = document.getElementById("course-wrap");
+
+    // console.log(courseWrap);
+    let html = "";
+    html += `<li id="myPosition" class="course mylocation on" onclick="clickCourseList(event,0)">나의위치</li>`;
+    for (let i = 0; i < data.length; i++) {
+      html += `<li class="course" onclick="clickCourseList(event, ${data[i].course_id})">`;
+      if (data[i].users_course_id) {
+        html += `<div class="mark-wrap"><img src="/file/complete.png"/></div>`;
+      }
+      html += `<div><p><span id="targetColore" >${i + 1}</span>${data[i].course_name}</p><span onclick="deleteMyCourseList()">-</span></div>`;
+      html += `</li>`;
+      if (data[i].table_name === "arts_and_science") {
+      }
+    }
+    courseWrap.innerHTML = html;
+  };
+  makeList();
+  const clickCourseList = (e, courseId) => {
+    if (clickCourseId !== courseId) {
+      const courseWrap = document.querySelectorAll(".course");
+      for (let i = 0; i < courseWrap.length; i++) {
+        courseWrap[i].classList.remove("on");
+      }
+      e.currentTarget.classList.add("on");
+
+      let courseLetitude;
+      let courseLongitude;
+
+      if (courseId === 0) {
+        courseLetitude = userLatitude;
+        courseLongitude = userLongitude;
+      } else {
+        let matchedCourse = courseListInfo.find((course) => course.course_id === courseId);
+        courseLetitude = matchedCourse.course_latitude;
+        courseLongitude = matchedCourse.course_longitude;
+      }
+      panTo(courseLetitude, courseLongitude);
+      clickCourseId = courseId;
+    }
+  };
+//   clickCourseList();
 });
+

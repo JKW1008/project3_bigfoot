@@ -40,7 +40,7 @@ export const getallMyCourse = async (req, res) => {
   try{
     const user = req.user.user_id;
     const allmycourse = await allMyCourse(user);
-    console.log(allmycourse);
+    // console.log(allmycourse);
     res.status(200).json({
       success: true,
       data: allmycourse, // allmycourse에 들어 있는 데이터를 프론트로 전달
