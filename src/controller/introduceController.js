@@ -16,12 +16,13 @@ export const getArtsandScienceList = async (req, res) => {
 export const containCourse = async (req, res) => {
   const user = req.user.user_id;
   const courseIdx = req.body.idx;
+  const courseName = req.body.name;
   const tableName = req.body.tableName;
   const lat = req.body.lat;
   const lon = req.body.lon;
 
   try {
-    const result = await ContainCourse(user, tableName, courseIdx, lat, lon);
+    const result = await ContainCourse(user, tableName, courseIdx, courseName, lat, lon);
 
     if (result === true) {
       return res.status(200).json(new ResponseBody(200, "success", "장바구니 저장 완료"));
@@ -39,6 +40,7 @@ export const getallMyCourse = async (req, res) => {
   try{
     const user = req.user.user_id;
     const allmycourse = await allMyCourse(user);
+    console.log(allmycourse);
     res.status(200).json({
       success: true,
       data: allmycourse, // allmycourse에 들어 있는 데이터를 프론트로 전달

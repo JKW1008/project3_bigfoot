@@ -59,10 +59,10 @@ export default class IntroduceRepository{
       }
       
 
-      static async containCourse(user_id, table_name, course_id, lat, lon) {
-        const QUERY = `INSERT INTO containcourse (user_id, table_name, course_id, latitude, longitude) VALUES (?, ?, ?, ?, ?)`;
+      static async containCourse(user_id, table_name, course_id, course_name, lat, lon) {
+        const QUERY = `INSERT INTO containcourse (user_id, table_name, course_id, course_name, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)`;
         try {
-          return await db.execute(QUERY, [user_id, table_name, course_id, lat, lon]).then((result) => result[0]);
+          return await db.execute(QUERY, [user_id, table_name, course_id, course_name, lat, lon]).then((result) => result[0]);
         } catch (error) {
           console.error('Error in insert', error);
           throw error;
