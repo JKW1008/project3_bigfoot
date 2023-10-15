@@ -41,10 +41,10 @@ export default class IntroduceRepository{
         }
       }
 
-      static async Existcourse(user_id, course_id) {
-        const QUERY = `SELECT * FROM containcourse WHERE user_id = ? AND course_id = ?`;
+      static async Existcourse(user_id, course_id, course_name) {
+        const QUERY = `SELECT * FROM containcourse WHERE user_id = ? AND course_id = ? AND course_name = ?`;
         try {
-          const result = await db.execute(QUERY, [user_id, course_id]);
+          const result = await db.execute(QUERY, [user_id, course_id, course_name]);
           if (result[0].length > 0) {
             // 결과가 하나 이상의 행을 반환했으므로 해당 데이터가 존재함
             return true;
@@ -59,10 +59,10 @@ export default class IntroduceRepository{
       }
       
 
-      static async containCourse(user_id, table_name, course_id, course_name, lat, lon) {
-        const QUERY = `INSERT INTO containcourse (user_id, table_name, course_id, course_name, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)`;
+      static async containCourse(user_id, table_name, course_id, course_name, lat, lon, qr) {
+        const QUERY = `INSERT INTO containcourse (user_id, table_name, course_id, course_name, latitude, longitude, qr_code) VALUES (?, ?, ?, ?, ?, ?, ?)`;
         try {
-          return await db.execute(QUERY, [user_id, table_name, course_id, course_name, lat, lon]).then((result) => result[0]);
+          return await db.execute(QUERY, [user_id, table_name, course_id, course_name, lat, lon, qr]).then((result) => result[0]);
         } catch (error) {
           console.error('Error in insert', error);
           throw error;

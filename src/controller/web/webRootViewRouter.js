@@ -10,6 +10,7 @@ const webRootViewRouter = express.Router();
 webRootViewRouter.get("/", (req, res) => res.render("main"));
 webRootViewRouter.get("/introduce", async (req, res) => {
     const coursArray = await getArtsandScience();
+    // console.log(coursArray.arts_and_science[2].qr_code);
     res.render("introduce", {data : coursArray});
 }); 
 webRootViewRouter.get("/course", (req, res) => res.render("course"));

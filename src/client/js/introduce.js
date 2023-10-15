@@ -119,7 +119,7 @@ btn_detail.forEach((box) => {
 });
 
 
-async function containCourse(tableName, idx, name, lat, lon, accessToken) {
+async function containCourse(tableName, idx, name, lat, lon, qr, accessToken) {
   try {
     const response = await fetch('/api/introduce', {
       method: 'POST',
@@ -134,6 +134,7 @@ async function containCourse(tableName, idx, name, lat, lon, accessToken) {
         name,
         lat,
         lon,
+        qr,
         accessToken
       }),
     });
@@ -141,9 +142,6 @@ async function containCourse(tableName, idx, name, lat, lon, accessToken) {
 
     if (response.status === 200) {
       msgAlert("center", "저장 완료", "success");
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
     } else if (response.status === 400) {
       msgAlert("center", result.message, "error");
     } else if (response.status === 401) {
@@ -168,12 +166,13 @@ btn_cotain.forEach((box) => {
     const name = box.dataset.courseName;
     const lat = box.dataset.lat;
     const lon = box.dataset.lon;
+    const qr = box.dataset.qr;
     const accessToken = localStorage.getItem("accessToken");
 
 
     if(!accessToken){
       window.location.href = "/login?error=need_login";
     }
-    containCourse(tableName, idx, name, lat, lon, accessToken);
+    containCourse(tableName, idx, name, lat, lon, qr, accessToken);
   });
 });

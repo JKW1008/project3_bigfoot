@@ -26,3 +26,8 @@ export const userLoginService = async ({ userId, userPassword }) => {
 const passwordCheck = async (userPassword, databasePassword) => {
   return await bcrypt.compare(userPassword, databasePassword);
 }
+
+export const myPage = async (userId) => {
+  const userInfo = await UserRepository.findById(userId);
+  return userInfo;
+}

@@ -3,7 +3,6 @@ const getCurrentPosition = () => {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   }
 )};
-
 const courseCheckFetch = async (qrCode) => {
   const accessToken = localStorage.getItem("accessToken");
   if (!accessToken) {
@@ -25,7 +24,7 @@ const courseCheckFetch = async (qrCode) => {
   }
 
   try {
-    const response = await fetch('/api/courses', {
+    const response = await fetch("/api/courses/visit", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,23 +37,25 @@ const courseCheckFetch = async (qrCode) => {
         longitude : coords.longitude,
       }),
     });  
-    const result = await response.json();
+    // const result = await response.json();
 
     if(response.status == 200) {
       msgAlert("center", "방문 완료", "success");
       setTimeout(() => {
-        window.location.href = "/course";
+        window.location.href = "/users";
       }, 1000); 
-    } else if (response.status === 400) {
-      if (result.message === "위치 정보 없음") msgAlert("center", "위치정보를 가져올 수 없습니다.", "error");
-      else if (result.message === "위치 적용 범위 초과") msgAlert("center", "목표물의 100m 반경에 있어야합니다.", "error");
-      else msgAlert("center", "잘못된 qr코드입니다.", "error");
-    } else if (response.status === 401) {
-      if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
-      else return window.location.href = "/login?error=need_login";
-    } else if (response.status === 409) {  
-      msgAlert3("center");
-    } else {
+    } 
+    // else if (response.status === 400) {
+    //   if (result.message === "위치 정보 없음") msgAlert("center", "위치정보를 가져올 수 없습니다.", "error");
+    //   else if (result.message === "위치 적용 범위 초과") msgAlert("center", "목표물의 100m 반경에 있어야합니다.", "error");
+    //   else msgAlert("center", "잘못된 qr코드입니다.", "error");
+    // } else if (response.status === 401) {
+    //   if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
+    //   else return window.location.href = "/login?error=need_login";
+    // } else if (response.status === 409) {  
+    //   msgAlert("center", "잘못된 qr코드입니다.", "error");
+    // }
+     else {
       msgAlert("center", "서버 에러", "error");
     }
   } catch(error) {
@@ -123,6 +124,7 @@ function startScan() {
       // QR 코드를 찾은 경우
       if (code) {
         // QR 코드 주변에 테두리를 그립니다.
+        // console.log(code.location);
         drawLine(
           code.location.topLeftCorner,
           code.location.topRightCorner,
@@ -130,21 +132,22 @@ function startScan() {
         );
         drawLine(
           code.location.topRightCorner,
-          code.location.centerRightCorner,
+          code.location.bottomRightCorner,
           "#FF0000"
         );
         drawLine(
-          code.location.centerRightCorner,
-          code.location.centerLeftCorner,
+          code.location.bottomRightCorner,
+          code.location.bottomLeftCorner,
           "#FF0000"
         );
         drawLine(
-          code.location.centerLeftCorner,
+          code.location.bottomLeftCorner,
           code.location.topLeftCorner,
           "#FF0000"
         );
-        msgAlert2("center");
+        // msgAlert("center", "잘못된 qr코드입니다.", "error");
         // QR 코드에 저장된 데이터를 사용하여 어떤 작업을 수행합니다. 
+        // console.log(code.data);
         return courseCheckFetch(code.data);
       }
     }

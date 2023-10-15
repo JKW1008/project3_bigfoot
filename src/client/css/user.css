@@ -185,6 +185,23 @@ input[name="tab_item_user"] {
   color: black;
 }
 
+
+.tab_content1 div{
+  height: 80px;
+  width: 80px;
+  background-color: #333333;
+  border-radius: 100%;
+}
+
+
+/* .nostamp{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
 .tab_1-1,
 .tab_1-2,
 .tab_1-3,
@@ -225,7 +242,7 @@ input[name="tab_item_user"] {
   justify-content: center;
   align-items: center;
   font-size: 12px;
-}
+} */
 .tab_yellow {
   background: #fffbd6;
 }

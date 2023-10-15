@@ -1,107 +1,187 @@
-const accessToken = localStorage.getItem("accessToken");
-if (!accessToken) {
-  window.location.href = "/login?error=need_login";
-}
-
-const usersNav = document.getElementById("usersNav");
-
-const notLoginHtml = () => {
-  let html = "";
-  html += `<a href="/login"><button>로그인</button></a>`;
-  usersNav.innerHTML = html;
-}
-
-const loginHtml = (data) => {
-  let html = "";
-  html += `<div class="user-info">`
-  if (data.user_image) {
-    html += `<img src="${data.user_image}" alt="유저 이미지">`
-  } else {
-    html += `<img src="/file/people.jpg" alt="유저 이미지">`
-  }
-  html += `
-            <span>${data.name}</span>
-          </div>`
-  html += `<button class="logout-btn" onclick="logout()">로그아웃</button>`
-  usersNav.innerHTML = html;
-}
-
-const logout = () => {
-  localStorage.removeItem("accessToken");
-  location.reload();
-}
-
-const checkUserInfo = async () => {
-  const accessToken = localStorage.getItem("accessToken");
+async function myPage(accessToken) {
   if (!accessToken) {
-    notLoginHtml();
+    window.location.href = "/login?error=need_login";
     return;
   }
+
   try {
-    const response = await fetch('/api/auth/token/check', {
-      method: 'POST',
+    const response = await fetch("/api/auth/mypage", {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
         Authorization: `Bearer ${accessToken}`,
-      }
-    }); 
-    const result = await response.json();
-    if(response.status === 200 ) {
-      loginHtml(result.data);
+      },
+    });
+
+    if (response.status === 200) {
+      const result = await response.json();
+      // console.log(result.data);
+
+      // 여기에서 데이터를 반환하도록 변경
+      return result.data;
+    } else if (response.status === 401) {
+      window.location.href = "/login?error=expired";
+      return null; // 또는 에러 상황에 따라 적절한 값을 반환
     } else {
-      localStorage.removeItem("accessToken");
-      notLoginHtml();
-      if (response.status == 401 && result.message === "토큰 만료") {
-        msgAlert("center", "인증 만료", "error");
-      } else {
-        msgAlert("center", "인증 실패", "error");
-      }
+      msgAlert("center", "서버 오류", "error");
+      return null; // 또는 에러 상황에 따라 적절한 값을 반환
     }
-  } catch(error) {
+  } catch (error) {
     console.error("Error:", error);
-    notLoginHtml();
-    msgAlert("center", "서버 에러", "error");
+    msgAlert("center", "서버 통신 오류", "error");
+    return null; // 또는 에러 상황에 따라 적절한 값을 반환
+  }
+
+}
+
+
+async function myStamp(accessToken) {
+  try {
+    const response = await fetch("/api/introduce/contain", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    if (response.status === 200){
+      const result = await response.json();
+      return result.data;
+    }
+  }catch (error) {
+    console.error("Error:", error);
+    msgAlert("center", "서버 통신 오류", "error");
+    return null; // 또는 에러 상황에 따라 적절한 값을 반환
+  }
+} 
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const accessToken = localStorage.getItem("accessToken");
+
+  // myContain 함수를 호출하고 결과를 변수에 저장
+  const result = await myPage(accessToken);
+  const stamp = await myStamp(accessToken);
+
+  const user_profile = document.querySelector(".user_profile");
+  let profilehtml = `
+              <p>내 아이디 : ${result.user_email}</p>
+              <p>나의 스탬프 갯수 : ${result.user_email}</p>
+  `
+
+  user_profile.innerHTML = profilehtml;
+
+  let arts_and_science = [];
+  let history_and_culture = [];
+  let nature_and_relaxation = [];
+  let tourism_and_shopping = [];
+  
+  for (let i = 0; i < stamp.length; i++) {
+    if (stamp[i].table_name === "arts_and_science") {
+      arts_and_science.push(stamp[i]);
+    } else if (stamp[i].table_name === "history_and_culture") {
+      history_and_culture.push(stamp[i]);
+    } else if (stamp[i].table_name === "nature_and_relaxation") {
+      nature_and_relaxation.push(stamp[i]);
+    } else if (stamp[i].table_name === "tourism_and_shopping") {
+      tourism_and_shopping.push(stamp[i]);
+    }
+  }
+
+  const artVisited = arts_and_science.some(item => item.visited === 1);
+  const artmission = document.querySelector("#artmission");
+  let artHtml = ``;
+  if (artVisited) {
+    artHtml = `<img src="/file/stamp/missionStamp-1.png"/>`;
+  } else {
+    artHtml = `예술과<br/>과학`;
+  }
+  artmission.innerHTML = artHtml;
+
+  const hisVisited = history_and_culture.some(item => item.visited === 1);
+  const hismission = document.querySelector("#hismission");
+  let hisHtml = ``;
+  if (hisVisited) {
+    hisHtml = `<img src="/file/stamp/missionStamp-2.png"/>`;
+  } else {
+    hisHtml = `예술과<br/>과학`;
+  }
+  hismission.innerHTML = hisHtml;
+
+  const restVisited = nature_and_relaxation.some(item => item.visited === 1);
+  const restmission = document.querySelector("#restmission");
+  let restHtml = ``;
+  if (restVisited) {
+    restHtml = `<img src="/file/stamp/missionStamp-3.png"/>`;
+  } else {
+    restHtml = `자연와<br/>휴식`;
+  }
+  restmission.innerHTML = restHtml;
+
+  const shopVisited = tourism_and_shopping.some(item => item.visited === 1);
+  const shopmission = document.querySelector("#shopmission");
+  let shopHtml = ``;
+  if (shopVisited) {
+    shopHtml = `<img src="/file/stamp/missionStamp-4.png"/>`;
+  } else {
+    shopHtml = `관광과<br/>쇼핑`;
+  }
+  shopmission.innerHTML = shopHtml;
+
+  console.log(arts_and_science);
+  
+const tab_1_content = document.querySelector("#tab_1_content");
+let yellowTabthtml = ``;
+
+for (let i = 0; i < arts_and_science.length; i++) {
+  if (arts_and_science[i].visited === 1) {
+    yellowTabthtml += `<div><img src="/file/stamp/autoStamp-1.png"/></div>`;
+  } else {
+    yellowTabthtml += `<div><p>${arts_and_science[i].course_name}</p></div>`;
   }
 }
+tab_1_content.innerHTML = yellowTabthtml;
 
+const tab_2_content = document.querySelector("#tab_2_content");
+let brownTabthtml = ``;
 
-checkUserInfo();
-
-
-//모달 창 1
-function openModal(modal_1) {
-  const modal = document.getElementById(modal_1);
-  modal.style.display = "block";
+for (let i = 0; i < history_and_culture.length; i++) {
+  if (history_and_culture[i].visited === 1) {
+    brownTabthtml += `<div><img src="/file/stamp/autoStamp-2.png"/></div>`;
+  } else {
+    brownTabthtml += `<div><p>${history_and_culture[i].course_name}</p></div>`;
+  }
 }
+tab_2_content.innerHTML = brownTabthtml;
 
-function closeModal(modal_1) {
-  const modal = document.getElementById(modal_1);
-  modal.style.display = "none";
+const tab_3_content = document.querySelector("#tab_3_content");
+let greenTabthtml = ``;
+
+for (let i = 0; i < nature_and_relaxation.length; i++) {
+  if (nature_and_relaxation[i].visited === 1) {
+    greenTabthtml += `<div><img src="/file/stamp/autoStamp-3.png"/></div>`;
+  } else {
+    greenTabthtml += `<div><p>${nature_and_relaxation[i].course_name}</p></div>`;
+  }
 }
+tab_3_content.innerHTML = greenTabthtml;
 
-var img1 = document.getElementById("img_1");
-img1.addEventListener("click", function () {
-  openModal("modal_1");
-});
+const tab_4_content = document.querySelector("#tab_4_content");
+let pinkTabthtml = ``;
 
-// 모달 창 2
-
-// function openModal(modal_2) {
-//   const SCmodal = document.getElementById(modal_2);
-//   modal.style.display = "block";
-// }
-
-// function closeSodal(modal_2) {
-//   const SCmodal = document.getElementById(modal_2);
-//   modal.style.display = "none";
-// }
-function openModal2(modal_1) {
-  const modal2 = document.getElementById(modal_1);
-  modal.style.display = "block";
+for (let i = 0; i < tourism_and_shopping.length; i++) {
+  if (tourism_and_shopping[i].visited === 1) {
+    pinkTabthtml += `<div><img src="/file/stamp/autoStamp-4.png"/></div>`;
+  } else {
+    pinkTabthtml += `<div><p>${tourism_and_shopping[i].course_name}</p></div>`;
+  }
 }
+tab_4_content.innerHTML = pinkTabthtml;
 
-const img2 = document.getElementById("img_2");
-img2.addEventListener("click", function () {
-  openModal("modal_2");
-});
+
+
+
+
+  const mycourse = document.querySelector(".mycourse");
+  mycourse.addEventListener("click", () => {
+    window.location.href = "/course"
+  })
+})
