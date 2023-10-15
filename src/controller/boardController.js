@@ -1,10 +1,22 @@
+import ResponseBody from "../handler/ResponseBody";
+import { board_input } from "../service/boardService";
+
 export const boardInput = async (req, res) => {
+    const user_id = req.user.user_id;
     const { title, content } = req.body; // 폼 데이터에서 제목과 내용 가져오기
     const file = req.file; // 업로드된 파일 가져오기
     const fileName = file ? file.filename : null; // 파일 이름 추출
     const filePath = file ? file.path : null; // 임시 파일의 경로 추출
 
-    // 이후 업로드된 파일과 함께 필요한 작업을 수행하세요.
-    console.log(fileName); // 파일 이름 출력
-    console.log(filePath); // 파일의 임시 경로 출력
+    try {
+        const fullFilePath = filePath + '/' + fileName; // 경로와 파일 이름 결합
+        const result = await board_input(user_id, title, content, fullFilePath);
+
+        if (result === true) {
+            return res.status(200).json(new ResponseBody(200, "success", "후기 작성 완료 완료"));
+        }
+    } catch (error) {
+        console.error("Error in boardInput: ", error);
+        throw error;
+    }
 }

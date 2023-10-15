@@ -40,14 +40,11 @@ const boardInput = async () => {
             setTimeout(() => {
                 window.location.href = "/board";
             }, 1000);
-        }  else if (response.status == 409) {
-            return msgAlert("center", "게시물 등록 실패", "error");
         } else {
             return msgAlert("center", "서버 통신 오류", "error");
         }
     } catch (error) {
         console.error("Error:", error);
-        bottomMsgAlert("서버 통신 오류", "error");
     }
 };
 
