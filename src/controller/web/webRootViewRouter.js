@@ -1,6 +1,7 @@
 import express from "express";
 import { getArtsandScience } from "../../service/introduceService";
 import { detailPage } from "../detailController";
+import { isAuth } from "../../middleware/auth";
 
 const webRootViewRouter = express.Router();
 // const data = require('../../../data/info.json');

@@ -41,13 +41,57 @@ export default class IntroduceRepository{
         }
       }
 
-      static async containCourse(user_id, table_name, course_id) {
-        const QUERY = `INSERT INTO containcourse (user_id, table_name, course_id) VALUES (?, ?, ?`;
+      static async Existcourse(user_id, course_id) {
+        const QUERY = `SELECT * FROM containcourse WHERE user_id = ? AND course_id = ?`;
         try {
-          return await db.execute(QUERY, [user_id, table_name, course_id]).then((result) => result[0]);
+          const result = await db.execute(QUERY, [user_id, course_id]);
+          if (result[0].length > 0) {
+            // 결과가 하나 이상의 행을 반환했으므로 해당 데이터가 존재함
+            return true;
+          } else {
+            // 결과가 행을 반환하지 않았으므로 해당 데이터가 존재하지 않음
+            return false;
+          }
+        } catch (error) {
+          console.error('Error in select', error);
+          throw error;
+        }
+      }
+      
+
+      static async containCourse(user_id, table_name, course_id, lat, lon) {
+        const QUERY = `INSERT INTO containcourse (user_id, table_name, course_id, latitude, longitude) VALUES (?, ?, ?, ?, ?)`;
+        try {
+          return await db.execute(QUERY, [user_id, table_name, course_id, lat, lon]).then((result) => result[0]);
         } catch (error) {
           console.error('Error in insert', error);
           throw error;
         }
       }
+
+      static async allMyCourse(id) {
+        const QUERY = `SELECT * FROM containcourse WHERE user_id = ?`;
+        try {
+          return await db.execute(QUERY, [id]).then((result) => result[0]);
+        } catch (error) {
+          console.error('Error in Get', error);
+          throw error;
+        }
+      }
+
+      static async deleteMyCourse(idx) {
+        const QUERY = `DELETE FROM containcourse WHERE idx = ?`;
+        try {
+            const [result] = await db.execute(QUERY, [idx]);
+            if (result.affectedRows > 0) {
+                return true; // 삭제 성공
+            } else {
+                return false; // 삭제 실패
+            }
+        } catch (error) {
+            console.error('Error in deleteMyCourse', error);
+            throw error;
+        }
+    }
+    
 }

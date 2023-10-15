@@ -1,3 +1,8 @@
+// const accessToken = localStorage.getItem("accessToken");
+// if (!accessToken) {
+//   window.location.href = "/login?error=need_login";
+// }
+
 const usersNav = document.getElementById("usersNav");
 
 const notLoginHtml = () => {

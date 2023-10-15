@@ -131,6 +131,9 @@ input[type="file"]{
 }
 
 .writing-box .writing-input-wrap .writing-text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
     height: 350px;
 }
 
