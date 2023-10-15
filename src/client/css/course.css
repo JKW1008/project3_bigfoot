@@ -3,6 +3,8 @@
   width: 90%;
   padding-top: 60px;
   margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
 }
 .mylocation{
   padding: 1vh 0 !important
@@ -23,8 +25,39 @@
 }
 
 /* 코스목록  */
+
+.userCourseList-wrap{
+  position: absolute;
+  width: 100%;
+  min-width: 350px;
+  height: 300px;
+  bottom: -10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 10px 10px 0px 0px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px -3px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: auto;
+  z-index: 10;
+}
+.userCourseList-wrap.move{
+  bottom: 80px;
+}
+.userCourseList-wrap .slideUP-button {
+  width: 60%;
+  height: 10px;
+  padding: 10px 0 0 0;
+  border-radius: 5px;
+  margin: 1rem 0 0 0 ;
+  background: #f1f0f1;
+  
+}
 .course-nav-ul .course{
   padding: 0;
+  margin: 0 10px;
 }
 .course-container .course-nav-ul li {
   width: 100%;

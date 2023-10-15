@@ -19,7 +19,7 @@ slideUpButton.addEventListener("click",()=>{
 const locationMap = document.getElementById("location-map");
 let markers = [];
 let isMapDrawn = false;
-let userLatitue;
+let userLatitude;
 let userLongitude;
 let clickCourseId = 0;
 //지도그리는 함수
@@ -31,17 +31,17 @@ const configurationLocationWatch = () => {
       deleteMarkers();      
       // console.log(position);
       //내 위치 확인후 카카오맵에 중앙으로
-      userLatitue = position.coords.latitude;
+      userLatitude = position.coords.latitude;
       userLongitude = position.coords.longitude;
       if (!isMapDrawn) {
         // console.log(position);
         isMapDrawn = true;
-        drawMap(userLatitue, userLongitude);
-        addCourseMarker();
+        drawMap(userLatitude, userLongitude);
+        addCourseMarkers();
       }
       addUserMarker();
       if (clickCourseId === 0) {        
-        panTo(userLatitue, userLongitude);
+        panTo(userLatitude, userLongitude);
       }
     });
   }
@@ -57,7 +57,7 @@ configurationLocationWatch();
 const addUserMarker = () => {
   // let maker = new kakao.maps.Marker({
   //   map: map,
-  //   position: new kakao.maps.LatLng(userLatitue, userLongitude),
+  //   position: new kakao.maps.LatLng(userLatitude, userLongitude),
   // });
   // // maker.setMap(map);
   // markers.push(maker);
@@ -66,20 +66,20 @@ const addUserMarker = () => {
     const image = new kakao.maps.MarkerImage(markerImage, markerSize);
     let marker = new kakao.maps.Marker({
         map : map,
-        position : new kakao.maps.LatLng(userLatitue, userLongitude),
+        position : new kakao.maps.LatLng(userLatitude, userLongitude),
         image: image,
     });
     //배열 만들어주기 -> 그려진 마커를 지우기 위해서 
     markers.push(marker);
 };
+// 맵 그리기
 const drawMap = (latitue, longitude) => {
   const options = {
     center: new kakao.maps.LatLng(latitue, longitude),
     level: 3,
   };
   
-  map = new kakao.maps.Map(locationMap, options);
-  
+  map = new kakao.maps.Map(locationMap, options);  
 };
 //코스 마커 그리기
 const addCourseMarkers = (latitude,longitude) => {  
@@ -104,6 +104,7 @@ function tripLocation(latitude,longitude){
   // console.log(longitude);
   // console.log(latitude);
   drawMap(latitude,longitude);
+  addUserMarker();
   addCourseMarkers(latitude,longitude);
 }
 
