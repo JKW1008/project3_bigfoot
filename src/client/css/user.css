@@ -166,7 +166,7 @@ input[name="tab_item_user"] {
 /* 탭 컨텐츠 스타일 */
 .tab_content1 {
   display: none;
-  padding: 25px 30px 10px;
+  padding: 25px 30px 10px 40px;
   clear: both;
   overflow: hidden;
 }
@@ -176,7 +176,11 @@ input[name="tab_item_user"] {
 #tab_2:checked ~ #tab_2_content,
 #tab_3:checked ~ #tab_3_content,
 #tab_4:checked ~ #tab_4_content {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  /* align-items: start; */
+  gap: 20px;
 }
 
 /* 선택된 탭 스타일 */
@@ -187,10 +191,15 @@ input[name="tab_item_user"] {
 
 
 .tab_content1 div{
-  height: 80px;
-  width: 80px;
-  background-color: #333333;
+  height: 90px;
+  width: 90px;
+  background-color: #C1C1C1;
+  /* border: 1px solid #333333; */
   border-radius: 100%;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content:center;
+  align-items: center;
 }
 
 
@@ -268,6 +277,8 @@ input[name="tab_item_user"] {
 }
 .tabs1 p {
   color: #353535;
+  font-size: 12px;
+  padding: 15px;
 }
 
 /*모달 창*/

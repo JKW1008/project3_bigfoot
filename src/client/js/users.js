@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   // myContain 함수를 호출하고 결과를 변수에 저장
   const result = await myPage(accessToken);
   const stamp = await myStamp(accessToken);
-
+console.log(result);
   const user_profile = document.querySelector(".user_profile");
   let profilehtml = `
               <p>내 아이디 : ${result.user_email}</p>
-              <p>나의 스탬프 갯수 : ${result.user_email}</p>
+              <p>나의 스탬프 갯수 : ${result.admin}</p>
   `
 
   user_profile.innerHTML = profilehtml;
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   shopmission.innerHTML = shopHtml;
 
-  console.log(arts_and_science);
+  // console.log(arts_and_science);
   
 const tab_1_content = document.querySelector("#tab_1_content");
 let yellowTabthtml = ``;
