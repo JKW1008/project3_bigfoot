@@ -48,7 +48,7 @@
   cursor: pointer;
 }
 .mission {
-  width: 390px;
+  width: 90%;
   height: 130px;
   margin: 30px 20px;
   background: #f1f0f1;
@@ -191,8 +191,8 @@ input[name="tab_item_user"] {
 
 
 .tab_content1 div{
-  height: 90px;
-  width: 90px;
+  height: 80px;
+  width: 80px;
   background-color: #C1C1C1;
   /* border: 1px solid #333333; */
   border-radius: 100%;
