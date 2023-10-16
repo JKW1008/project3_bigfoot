@@ -6,7 +6,7 @@ import { handleKakaoLogin, isAuth } from "../middleware/auth.js";
 import { authMe, joinUser, loginUser, mypage } from "./authController.js";
 
 const clientId = process.env.CLIENT_ID || "";
-const callback = "https://port-0-project3-bigfoot-4fju66f2clmzth6gt.sel5.cloudtype.app/api/auth/kakao/callback"
+const callback = "/api/auth/kakao/callback"
 
 const authRouter = express.Router();
 
