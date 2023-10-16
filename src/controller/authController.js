@@ -3,10 +3,14 @@ import ResponseBody from "../handler/ResponseBody.js";
 import { idchk, myPage, userJoinService, userLoginService } from "../service/userService.js";
 
 export const joinUser = async (req, res) => {
-  const { userId, userPassword, userName } = req.body;
+  // const { userId, userPassword, userName } = req.body;
+  const userId = req.body.userId;
+  console.log(userId);
+  const userPassword = req.body.userPassword;
+  const userName = req.body.userName;
   if (!userId || !userPassword || !userName) return res.status(400).json(new ResponseBody(400, "error", "모든 필드를 채워주세요.", ""));
   try {
-    await userJoinService({ userId, userPassword, userName });
+    await userJoinService( userId, userPassword, userName );
     return res.status(201).json(new ResponseBody(201, "success", "회원가입 완료", ""));
   } catch (e) {
     console.error(e);

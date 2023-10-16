@@ -57,7 +57,7 @@ const joinFetch = async () => {
     }
   } catch(error) {
     console.error("Error:", error);
-    bottomMsgAlert("서버 통신 오류", "error");
+    msgAlert("bottom", "서버 통신 오류", "error");
   }
 }
 

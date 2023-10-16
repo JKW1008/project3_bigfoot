@@ -11,11 +11,11 @@ export default class UserRepository {
     return db.execute(QUERY, [email]).then((result) => result[0][0]);
   }  
 
-  static async save({ id, username, profileImage, provider }) {
-    // console.log(user_id, password, user_name);
-    const QUERY = `INSERT INTO people (user_email, user_name, user_image, user_provider) VALUES (?, ?, ?, ?)`;
+  static async save( userId, userPassword, userName) {
+    console.log(userId, userPassword, userName);
+    const QUERY = `INSERT INTO people (user_email, user_password, user_name) VALUES (?, ?, ? )`;
 
-    const data = await db.execute(QUERY, [id, username, profileImage, provider])
+    const data = await db.execute(QUERY, [userId, userPassword, userName])
         .then((result) => result[0]);
     console.log(data);
     const user = { user_id: data.insertId }; // user 변수를 정의하고 설정

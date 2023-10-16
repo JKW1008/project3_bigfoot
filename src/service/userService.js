@@ -4,11 +4,11 @@ import jwt from "jsonwebtoken";
 import UserRepository from "../repository/UserRepository.js";
 import Exception from "../handler/Exception.js";
 
-export const userJoinService = async ({ userId, userPassword, userName }) => {
+export const userJoinService = async ( userId, userPassword, userName ) => {
   const user = await UserRepository.findByEmail(userId);
   if(user) throw Exception.ID_EXIST;
   const hashedPw = await bcrypt.hash(userPassword, 8);
-  await UserRepository.save({ user_id : userId, password : hashedPw, user_name : userName })
+  await UserRepository.save( userId, hashedPw, userName )
 }
 
 export const userLoginService = async ({ userId, userPassword }) => {
