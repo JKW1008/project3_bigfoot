@@ -145,9 +145,9 @@ function startScan() {
           code.location.topLeftCorner,
           "#FF0000"
         );
+        msgAlert2("center")
         // msgAlert("center", "잘못된 qr코드입니다.", "error");
         // QR 코드에 저장된 데이터를 사용하여 어떤 작업을 수행합니다. 
-        // console.log(code.data);
         return courseCheckFetch(code.data);
       }
     }

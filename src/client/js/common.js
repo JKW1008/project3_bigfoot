@@ -72,7 +72,7 @@ const msgAlert3 = (position, msg, type) => {
     toast: true,
     position: position,
     showConfirmButton: false,
-    timer: 20000,
+    timer: 2000,
   });
   Toast.fire({ 
     title: msg, 
