@@ -62,18 +62,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   const stamp = await myStamp(accessToken);
 
   const user_profile = document.querySelector(".user_profile");
-  let profilehtml = `
-              <p>내 아이디 : ${result.user_email}</p>
-              <p>나의 스탬프 갯수 : ${result.user_email}</p>
-  `
+  let profilehtml = `<p>내 아이디 : ${result.user_email}</p>`;
 
-  user_profile.innerHTML = profilehtml;
 
   let arts_and_science = [];
   let history_and_culture = [];
   let nature_and_relaxation = [];
   let tourism_and_shopping = [];
   
+  let stampnum = 0;
+
   for (let i = 0; i < stamp.length; i++) {
     if (stamp[i].table_name === "arts_and_science") {
       arts_and_science.push(stamp[i]);
@@ -84,7 +82,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else if (stamp[i].table_name === "tourism_and_shopping") {
       tourism_and_shopping.push(stamp[i]);
     }
+
+    if (stamp[i].visited == 1){
+      stampnum += 1;
+    }
   }
+
+  profilehtml +=`<p>나의 스탬프 갯수 : ${stampnum} 개</p>`
+  user_profile.innerHTML = profilehtml;
 
   const artVisited = arts_and_science.some(item => item.visited === 1);
   const artmission = document.querySelector("#artmission");
