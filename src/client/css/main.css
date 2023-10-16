@@ -28,7 +28,10 @@ html, footer{
     border-radius: 3px;
     background: #d3d3d3;
   }
-  
+  .button-wrapper .copymyStamp {
+    border-radius: 3px;
+    background: #F0D2E6;
+  }
   /* 튜토리얼 모달창 */
   #tutorial-popup {
     display: none;
