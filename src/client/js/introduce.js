@@ -40,9 +40,9 @@ const configurationLocationWatch = () => {
         addCourseMarkers();
       }
       addUserMarker();
-      if (clickCourseId === 0) {        
-        panTo(userLatitude, userLongitude);
-      }
+      // if (clickCourseId === 0) {        
+      //   panTo(userLatitude, userLongitude);
+      // }
     });
   }
 };
@@ -168,7 +168,6 @@ btn_cotain.forEach((box) => {
     const lon = box.dataset.lon;
     const qr = box.dataset.qr;
     const accessToken = localStorage.getItem("accessToken");
-
 
     if(!accessToken){
       window.location.href = "/login?error=need_login";

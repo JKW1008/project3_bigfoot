@@ -131,3 +131,15 @@ padding: 10px 16px;
   border-radius: 50%;
   background-color: #F1BBDF;
 }
+.course-container .course-nav-ul li div p span.artYellow{
+  background-color: #FFFBD6;
+}
+.course-container .course-nav-ul li div p span.historyPink{
+  background-color: #EBE5DA;
+}
+.course-container .course-nav-ul li div p span.natureGreen{
+  background-color: #EAFAEE;
+}
+.course-container .course-nav-ul li div p span.tourismPink{
+  background-color: #FFEEE4;
+}
