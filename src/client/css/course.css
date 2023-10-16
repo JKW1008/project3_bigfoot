@@ -85,6 +85,9 @@
 .course-nav-ul .course.on {
   background-color: #F0D2E6;
 }
+.course-nav-ul .course.liston {
+  background-color: #EFE3EB;
+}
 .course-container .course-nav-ul li div p{
   display: flex;
   align-items: center;

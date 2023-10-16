@@ -202,9 +202,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const courseWrap = document.querySelectorAll(".course");
       for (let i = 0; i < courseWrap.length; i++) {
+        courseWrap[i].classList.remove("liston");
         courseWrap[i].classList.remove("on");
       }
-      box.parentElement.classList.add("on");
+      box.parentElement.classList.add("liston");
       // console.log(lat,lon);
       panTo(lat, lon);
     });
@@ -223,6 +224,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const courseWrap = document.querySelectorAll(".course");
     for (let i = 0; i < courseWrap.length; i++) {
       courseWrap[i].classList.remove("on");
+      courseWrap[i].classList.remove("liston");
     }
     mylocation.classList.add("on");
     // console.log("1");
