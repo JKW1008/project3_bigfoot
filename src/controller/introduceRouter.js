@@ -10,7 +10,7 @@ introduceRouter.get("/", getArtsandScienceList);
 introduceRouter.get("/contain", isAuth, getallMyCourse);
 
 
-introduceRouter.post("/delte", deleteMycourse);
+introduceRouter.post("/delete", deleteMycourse);
 introduceRouter.post("/", isAuth, containCourse);
 
 export default introduceRouter;

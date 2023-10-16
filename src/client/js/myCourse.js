@@ -39,7 +39,11 @@ async function myContain(accessToken) {
   }
 }
 
-async function deltemyCourse(idx) {
+
+
+async function deltemyCourse(box) {
+  const idx = box.dataset.idx;
+
   try {
     const response = await fetch("api/introduce/delete", {
       method: "POST",
@@ -180,15 +184,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
       html += `<div  data-lat="${data[i].latitude}" data-lon="${data[i].longitude}"><p><span class="targetColore" data-table="${data[i].table_name}" >${
         i + 1
-      }</span>${data[i].course_name}</p><span onclick="deleteMyCourseList()">-</span></div>`;
+      }</span>${data[i].course_name}</p><span class="delete_btn" data-idx=${data[i].idx} onclick>-</span></div>`
       html += `</li>`;
-      if (data[i].table_name === "arts_and_science") {
-      }
+      // if (data[i].table_name === "arts_and_science") {
+      // }
     }
     courseWrap.innerHTML = html;
   };
   makeList();
-
   // 클릭시  지도 이동
   let courseList = document.querySelectorAll(".course > div");
   // console.log(courseList);
@@ -207,6 +210,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
+  let delete_btn = document.querySelectorAll(".delete_btn");
+  
+  delete_btn.forEach((box) => {
+    box.addEventListener("click", () => {
+      deltemyCourse(box); // 클릭 시 함수 호출
+    });
+  });
   //   내위치로 이동하기 함수
   let mylocation = document.querySelector(".mylocation");
   mylocation.addEventListener("click", () => {
@@ -259,3 +269,4 @@ const setColor = () =>{
 }
 setColor();
 });
+
