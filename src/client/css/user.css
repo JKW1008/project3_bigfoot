@@ -30,16 +30,15 @@
   font-weight: 700;
 }
 .stamp_DB {
+  width: 90%;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 .stamp_DB button {
-  width: 170px;
+  width: 190px;
   height: 38px;
   background-color: #F0D2E6;
-  margin: 0px 20px 0px 0px;
   text-align: center;
   font-size: 15px;
   font-style: normal;
