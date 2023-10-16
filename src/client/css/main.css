@@ -22,7 +22,7 @@ html, footer{
   }
   .button-wrapper .tutorial {
     border-radius: 3px;
-    background: #efe3eb;
+    background: #F0D2E6;
   }
   .button-wrapper .myStamp {
     border-radius: 3px;
@@ -63,7 +63,7 @@ html, footer{
     width: 350px;
     height: 48px;
     border-radius: 5px;
-    background: #EFE3EB;
+    background: #F0D2E6;
     color: #353535;
     text-align: center;
     font-size: 15px;
@@ -103,7 +103,7 @@ html, footer{
     width: 310px;
     height: 35px;
     border-radius: 5px;
-    background: #EFE3EB;
+    background: #F0D2E6;
     margin-top: 20px;
     font-weight: 700;
   }

@@ -43,5 +43,5 @@
 .users-container button:hover { background-color: #0056b3; }
 .users-container .user-info { width: 300px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-weight: bold; }
 .users-container .user-info img { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
-.users-container .logout-btn { background-color: #FF0000; margin-bottom: 50px; }
-.users-container .logout-btn:hover { background-color: #cc0000; }
+.users-container .logout-btn { background-color: #DA3682; margin-bottom: 50px; }
+.users-container .logout-btn:hover { background-color: #DA3682; }

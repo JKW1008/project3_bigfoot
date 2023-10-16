@@ -191,3 +191,41 @@ tab_4_content.innerHTML = pinkTabthtml;
     window.location.href = "/course"
   })
 })
+
+
+//모달 창 1
+function openModal(modal_1) {
+  const modal = document.getElementById(modal_1);
+  modal.style.display = "block";
+}
+
+function closeModal(modal_1) {
+  const modal = document.getElementById(modal_1);
+  modal.style.display = "none";
+}
+
+var img1 = document.getElementById("img_1");
+img1.addEventListener("click", function () {
+  openModal("modal_1");
+});
+
+// 모달 창 2
+
+// function openModal(modal_2) {
+//   const SCmodal = document.getElementById(modal_2);
+//   modal.style.display = "block";
+// }
+
+// function closeSodal(modal_2) {
+//   const SCmodal = document.getElementById(modal_2);
+//   modal.style.display = "none";
+// }
+function openModal2(modal_1) {
+  const modal2 = document.getElementById(modal_1);
+  modal.style.display = "block";
+}
+
+const img2 = document.getElementById("img_2");
+img2.addEventListener("click", function () {
+  openModal("modal_2");
+});
