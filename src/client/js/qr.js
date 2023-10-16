@@ -40,7 +40,7 @@ const courseCheckFetch = async (qrCode) => {
     // const result = await response.json();
 
     if(response.status == 200) {
-      msgAlert("center", "방문 완료", "success");
+      msgAlert3("center", "", "");
       setTimeout(() => {
         window.location.href = "/users";
       }, 1000); 
