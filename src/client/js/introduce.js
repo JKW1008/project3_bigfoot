@@ -40,9 +40,7 @@ const configurationLocationWatch = () => {
         addCourseMarkers();
       }
       addUserMarker();
-      // if (clickCourseId === 0) {        
-      //   panTo(userLatitude, userLongitude);
-      // }
+      
     });
   }
 };
@@ -99,7 +97,7 @@ const addCourseMarkers = (latitude,longitude) => {
     image: image1,
   });
 };
-
+// 클릭시 위치 이동
 function tripLocation(latitude,longitude){
   // console.log(longitude);
   // console.log(latitude);

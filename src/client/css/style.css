@@ -24,7 +24,7 @@
 .introduce-content-wrap p { margin-bottom: 10px;}
 
 /* course */
-.course-nav-ul { display: flex; flex-wrap: wrap; padding: 20px 0; margin-bottom: 20px; }
+.course-nav-ul { display: flex; flex-wrap: wrap; padding: 20px 0; margin-bottom: 20px; width: 100%;}
 .course-nav-ul .course { position: relative; width: 31%; text-align: center; border: 2px solid; border-radius: 30px; margin: 1%; padding: 1vh 0; font-weight: 500; border-color: rgb(221, 221, 221); background-color: rgb(238, 238, 238); font-family: "Pretendard-Medium"; }
 .course-nav-ul .course.on { border-color: #EFE3EB; background-color: #EFE3EB; color: #353535; }
 .course-nav-ul .course .mark-wrap { position: absolute;  width: 50px; height: 50px; right: 0; top: -10px; z-index: 15; }
