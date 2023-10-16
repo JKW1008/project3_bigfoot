@@ -40,22 +40,13 @@ const courseCheckFetch = async (qrCode) => {
     // const result = await response.json();
 
     if(response.status == 200) {
-      msgAlert3("center", "", "");
+      msgAlert2("center", "", "");
       setTimeout(() => {
         window.location.href = "/users";
       }, 1000); 
-    } 
-    // else if (response.status === 400) {
-    //   if (result.message === "위치 정보 없음") msgAlert("center", "위치정보를 가져올 수 없습니다.", "error");
-    //   else if (result.message === "위치 적용 범위 초과") msgAlert("center", "목표물의 100m 반경에 있어야합니다.", "error");
-    //   else msgAlert("center", "잘못된 qr코드입니다.", "error");
-    // } else if (response.status === 401) {
-    //   if (result.message === "토큰 만료") return window.location.href = "/login?error=expired";
-    //   else return window.location.href = "/login?error=need_login";
-    // } else if (response.status === 409) {  
-    //   msgAlert("center", "잘못된 qr코드입니다.", "error");
-    // }
-     else {
+    } else if (response.status == 400) {
+      msgAlert3("center", "", "");
+    } else {
       msgAlert("center", "서버 에러", "error");
     }
   } catch(error) {
@@ -145,7 +136,6 @@ function startScan() {
           code.location.topLeftCorner,
           "#FF0000"
         );
-        msgAlert2("center")
         // msgAlert("center", "잘못된 qr코드입니다.", "error");
         // QR 코드에 저장된 데이터를 사용하여 어떤 작업을 수행합니다. 
         return courseCheckFetch(code.data);

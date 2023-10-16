@@ -7,11 +7,15 @@ export const getCourseListWitUser = async (user) => {
 
 export const chkVisited = async (user, qr) => {
   try {
-    const visited =  await CourseRepository.checkVisited(user, qr);
+    const visitedResult =  await CourseRepository.checkVisited(user, qr);
+    console.log(visitedResult);
 
-    if (visited === false){
-      return await CourseRepository.updateVisited(user, qr);
+    if (visitedResult.length > 0 && visitedResult[0].visited === 0) {
+      // 방문하지 않은 경우
+      await CourseRepository.updateVisited(user, qr);
+      return true;
     } else {
+      // 이미 방문한 경우 또는 데이터가 없는 경우
       return false;
     }
   } catch (error) {
@@ -19,6 +23,7 @@ export const chkVisited = async (user, qr) => {
     throw error;
   }
 }
+
 // export const updateCourseVisitedStatus = async ({ user, qrCode, latitude, longitude }) => {
 //   const course = await CourseRepository.findCourseByQrCode(qrCode);
 //   if (!course) throw Exception.QR_BAD_REQUEST;
