@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const result = await myContain(accessToken);
   // 여기에서 data를 사용하거나 처리할 수 있습니다.
   data = result;
-  console.log(data);
+//   console.log(data);
 
   const locationMap = document.getElementById("location-map");
 
@@ -232,7 +232,7 @@ const setColor = () =>{
     targetColore.forEach((box)=>{
         let Kategorie;
         Kategorie = box.dataset.table
-        console.log( box.dataset.table);
+        // console.log( box.dataset.table);
         if(Kategorie === "arts_and_science"){
             for (let i = 0; i < targetColore.length; i++) {
                 targetColore[i].classList.remove("artYellow");
